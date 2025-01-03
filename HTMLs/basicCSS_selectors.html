@@ -1,0 +1,174 @@
+<!-- 
+CSS Selectors: 
+Universal Selector (`*`): Targets all elements in the document. Example: `* { margin: 0; }`
+
+Type Selector (`tag`): Targets all elements of a specific type. Example: `p { color: blue; }`
+
+ID Selector (`#id`): Targets an element with a unique ID. Example: `#fifth { color: red; }`
+
+Class Selector (`.class`): Targets all elements with a specific class. Example: `.x { font-size: 18px; }`
+
+Group Selector (`selector1, selector2`)**: Targets multiple selectors. Example: `#fifth, li { color: green; }`
+
+Attribute Selector (`[type]`): Targets elements based on attributes. 
+Example: `input[type="text"] { background-color: lightblue; }`
+
+Multiple Classes: Apply multiple classes to the same element. Example: `<p class="x y"></p>`
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* Universal Selector - applies to all elements */
+        /* * { margin: 0; padding: 0; } */
+
+        /* Type Selector */
+        p {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* ID Selector */
+        #fifth {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Class Selector */
+        .highlight {
+            background-color: lightyellow;
+            padding: 15px;
+        }
+
+        .x {
+            font-weight: bold;
+            color: #7f81ff;
+        }
+
+        /* Multiple Classes */
+        .x.y {
+            font-style: italic;
+            color: darkblue;
+        }
+
+        /* Group Selector */
+        #fifth, li {
+            color: green;
+        }
+
+        /* Attribute Selector */
+        input[type="text"] {
+            border: 2px solid blue;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: lightgreen;
+            border: none;
+            padding: 8px 8px;
+            font-weight: bold;
+            cursor: pointer;
+            /* Pointer cursor for better interaction */
+        }
+
+        /* Div with Blog Section */
+        .blog-section {
+            border: 2px double #eb09f7;
+            /* Lemon-colored border */
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 10px 0;
+            background-color: black;
+            /* Black background */
+            color: white;
+            /* White text */
+        }
+
+        .blog-section p, .blog-section span {
+            font-family: inherit;
+            padding: inherit;
+            /* Ensures child elements inherit the parent's font-family */
+        }
+
+        /* Span Selector */
+        span {
+            color: #59e5fd;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Paragraphs with ID and Class -->
+    <p>This is the first paragraph.</p>
+    <p class="highlight">This is the second paragraph with a class.</p>
+    <p class="x">This is the third paragraph with class "x".</p>
+    <p class="x y">This is the fourth paragraph with multiple classes "x" and "y".</p>
+    <p id="fifth">This is the fifth paragraph with an ID.</p>
+    <p>This is the sixth paragraph.</p>
+
+    <!-- Ordered List with Type Selector -->
+    <ol>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+    </ol>
+
+    <!-- Form with Attribute Selectors -->
+    <form>
+        Name:
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
+        Submit:
+        <input type="submit" id="submit-btn" value="Submit">
+    </form>
+
+    <!-- Div with Blog Section -->
+    <div class="blog-section">
+        <h2>My Blog Title</h2>
+        <p>This is the first paragraph of the blog.</p>
+        <p>This is another paragraph in the blog, <span>highlighting some text</span> for emphasis.</p>
+        <p>Blog posts are a great way to practice using CSS classes and selectors.</p>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+Universal Selector:
+   - Targets all elements (commented out for reference).
+   - Example: `* { margin: 0; padding: 0; }`
+
+Type Selector:
+   - Targets all `<p>` tags. Example: `p { font-family: Arial; }`
+
+ID Selector:
+   - Targets the element with ID `fifth`. Example: `#fifth { color: red; }`
+
+Class Selector:
+   - Targets elements with the class `highlight`. Example: `.highlight { background-color: lightyellow; }`
+
+Multiple Classes:
+   - Targets elements with both `x` and `y`. Example: `.x.y { font-style: italic; }`
+
+Group Selector:
+   - Applies styles to both `#fifth` and `<li>` elements. Example: `#fifth, li { color: green; }`
+
+Attribute Selector:
+   - Targets inputs of specific types. Example: `input[type="text"] { border: 2px solid blue; }`
+
+Span Selector:
+   - Styles only the `<span>` elements. Example: `span { color: purple; }`
+
+Div with Blog Section:
+   - Used to group and style a section. Example: `.blog-section { padding: 10px; }`
+-->

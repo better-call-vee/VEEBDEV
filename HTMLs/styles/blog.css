@@ -1,0 +1,54 @@
+/*
+1. External CSS to style elements in multiple HTML files.
+2. Common properties used in this example:
+   - text-decoration: Underlines, overlines, or removes decoration from text.
+   - display: Controls how elements are displayed (block, inline-block, none).
+   - visibility: Controls whether an element is visible or hidden.
+   - box-shadow: Adds shadow with x, y offsets, blur, and color.
+   - height and width: Define element dimensions.
+*/
+
+/* Styling for H3 */
+h3 {
+    text-decoration: underline; /* Adds underline to the text */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Sets font style */
+}
+
+/* Block-level Element */
+.block-box {
+    display: inline-block; /* Displays as a block */
+    width: 200px; /* Block width */
+    height: 50px; /* Block height */
+    background-color: lightblue; /* Background color */
+    border: 2px solid black; /* Border for visualization */
+    margin: 10px 0; /* Adds spacing */
+}
+
+/* Hidden Element */
+.hidden-box {
+    display: block; /* Still a block-level element */
+    visibility: hidden; /* Makes the element invisible but keeps space */
+    width: 200px;
+    height: 50px;
+    background-color: lightcoral;
+    margin: 10px 0;
+}
+
+/* Box with Shadow */
+.box-shadow-example {
+    display: block;
+    width: 250px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Shadow with x, y offsets, blur, and opacity */
+    margin: 20px;
+}
+
+/* Span Styling */
+.highlight {
+    font-weight: bold; /* Makes text bold */
+    color: darkblue; /* Changes text color */
+    background-color: lightyellow; /* Highlights background */
+    padding: 2px 5px; /* Adds space around the text */
+}

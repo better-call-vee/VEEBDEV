@@ -1,0 +1,144 @@
+<!-- 
+Borders:
+   - `border`: Adds borders to all sides.
+   - `border-radius`: Rounds the corners of an element.
+   - `border-top`, `border-left`, `border-right`, `border-bottom`: Add borders to specific sides.
+   - `none`: Removes a specific border.
+
+Margins:
+   - Single value: Applies to all sides.
+   - Two values: Top-Bottom and Right-Left.
+   - Three values: Top, Right-Left, Bottom.
+   - Four values: Top, Right, Bottom, Left.
+
+Padding:
+   - Same as margin but creates space inside the border, around the content.
+
+CSS Box Model:
+   1. Content: The actual text, image, or data inside the box.
+   2. Padding: Space between the content and the border.
+   3. Border: Surrounds the padding (optional).
+   4. Margin: Space between the element and its surroundings.
+   5. Width/Height: Defines the size of the content area (can use %, px, etc.).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Borders, Margins, and Padding</title>
+
+    <style>
+        /* Common styles for all divs */
+        .box {
+            padding: 20px;
+            /* Padding for content spacing */
+            margin: 10px;
+            /* Margin for outer spacing */
+            font-family: Arial, sans-serif;
+            /* Font for readability */
+        }
+
+        /* Div 1: Simple border with rounded corners */
+        .box1 {
+            border: 2px solid black;
+            /* Solid border on all sides */
+            border-radius: 10px;
+            /* Rounds the corners */
+            /* If we use border-bottom: none here, all the sides will be black
+            and rounded except the bottom one */
+        }
+
+        /* Div 2: Borders on specific sides */
+        .box2 {
+            border-top: 3px dashed blue;
+            /* Dashed top border */
+            border-left: 3px solid green;
+            /* Solid left border */
+            border-right: 3px dotted red;
+            /* Dotted right border */
+            border-bottom: none;
+            /* No bottom border */
+        }
+
+        /* Div 3: Universal margin and multi-value margins */
+        .box3 {
+            border: 2px solid purple;
+            /* Simple border */
+            margin: 20px;
+            /* Universal margin (applies to all sides) */
+            padding: 15px;
+            /* Universal padding (applies to all sides) */
+            width: 29%;
+        }
+
+        .box4 {
+            border: 2px solid orange;
+            margin: 20px 10px;
+            /* Top-Bottom: 20px, Right-Left: 10px */
+            padding: 10px 5px;
+            /* Top-Bottom: 10px, Right-Left: 5px */
+            height: 26px;
+            width: 700px;
+        }
+
+        .box5 {
+            border: 2px solid teal;
+            margin: 20px 15px 10px;
+            /* Top: 20px, Right-Left: 15px, Bottom: 10px */
+            padding: 15px 10px 5px;
+            /* Top: 15px, Right-Left: 10px, Bottom: 5px */
+        }
+
+        .box6 {
+            border: 2px solid rgb(97, 38, 38);
+            margin: 20px 15px 10px 5px;
+            /* Top: 20px, Right: 15px, Bottom: 10px, Left: 5px */
+            padding: 20px 15px 10px 5px;
+            /* Top: 20px, Right: 15px, Bottom: 10px, Left: 5px */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Div 1: Simple border with rounded corners -->
+    <div class="box box1">
+        This is the first div with a solid black border and rounded corners.
+    </div>
+
+    <!-- Borders on specific sides -->
+    <div class="box box2">
+        This is the second div with different styles of borders on each side.
+    </div>
+
+    <!-- Universal and multi-value margins -->
+    <div class="box box3">
+        This is the third div with universal margin (same for all sides) and universal padding.
+    </div>
+
+    <div class="box box4">
+        This is the fourth div with two-value margin (Top-Bottom and Right-Left) and two-value padding.
+    </div>
+
+    <div class="box box5">
+        This is the fifth div with three-value margin (Top, Right-Left, Bottom) and three-value padding.
+    </div>
+
+    <div class="box box6">
+        This is the sixth div with four-value margin (Top, Right, Bottom, Left) and four-value padding.
+    </div>
+
+    <!-- CSS Box Model -->
+    <h3>CSS Box Model</h3>
+    <ol>
+        <li>Content: The actual text, image, or data inside the box.</li>
+        <li>Padding: Space between the content and the border.</li>
+        <li>Border: Surrounds the padding (optional).</li>
+        <li>Margin: Space between the element and its surroundings.</li>
+        <li>Width/Height: Defines the size of the content area (can use %, px, etc.).</li>
+    </ol>
+</body>
+
+</html>

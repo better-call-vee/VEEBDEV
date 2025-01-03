@@ -1,0 +1,70 @@
+/* Header Styling */
+.header {
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 20px;
+}
+
+/* Background Image: Random Repetition */
+.background-random {
+    background-image: url("romanwm.jpg");
+    background-repeat: repeat;
+    background-size: 50%; /* Reduces the image size */
+    height: 400px; /* Adjust height */
+    width: 400px; /* Adjust width */
+}
+
+/* Background Image: Repeat on x-axis */
+.background-repeat {
+    background-image: url("romanwm.jpg");
+    background-repeat: repeat-x;
+    background-size: contain; /* Ensures the image fits */
+    height: 200px; /* Keep height static */
+    width: 400px; /* Adjust width for 2 images */
+}
+
+/* Background Image: Full Cover */
+.background-size {
+    background-image: url("romanwm.jpg");
+    background-repeat: no-repeat; /* No repeat */
+    background-size: cover; /* Covers the entire container */
+    background-position: center; /* Centers the image */
+    height: 200px;
+    padding: 200px;
+}
+
+/* Background Image: Parent Directory */
+.background-parent {
+    background-image: url("../theotc.jpg"); /* Accessing parent directory */
+    background-repeat: no-repeat;
+    background-size: contain; /* Fits image inside container */
+    background-position: center;
+    height: 200px;
+    padding: 20px;
+    color: #211717;
+    text-align: left;
+    line-height: 400px;
+}
+
+/* Inline to Block Display */
+.inline-to-block {
+    display: block; /* Makes it a block element */
+    width: fit-content; /* Makes the box fit the content */
+    border: 2px solid red; /* Adds border */
+    color: red;
+    font-weight: bold;
+}
+
+/* Block to Inline-Block Display */
+.block-to-inline-block {
+    display: inline-block; /* Changes block element to inline-block */
+    color: blue;
+    font-style: italic;
+    border: 1px solid gray;
+    padding: 5px;
+    background-color: lightgray;
+}
