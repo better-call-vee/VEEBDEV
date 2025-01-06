@@ -1,0 +1,83 @@
+<!-- 
+HTML Semantic Tags Overview:
+   - Semantic tags add meaning and structure to a document.
+   - Examples include:
+       - `<header>`: Defines the header section of a document or section.
+       - `<footer>`: Defines the footer section.
+       - `<article>`: Represents a self-contained piece of content.
+       - `<section>`: Groups related content into logical blocks.
+           - Example: A collection of articles, media, or navigation items.
+       - `<nav>`: Represents navigation links.
+       - `<aside>`: Content indirectly related to the main content.
+
+Audio Tag:
+   - `<audio>` is used to add audio files to web pages.
+   - Common attributes:
+       - `src`: Specifies the path to the audio file.
+       - `controls`: Adds play, pause, and volume controls for the audio.
+       - Fallback text: Used when the browser doesn't support the `<audio>` tag.
+
+Video Tag:
+   - `<video>` is used to add videos to web pages.
+   - Common attributes:
+       - `src`: Specifies the path to the video file.
+       - `controls`: Adds play, pause, and volume controls for the video.
+       - `width` & `height`: Resize the video dimensions.
+       - Fallback text: Used when the browser doesn't support the `<video>` tag.
+
+Iframe Tag:
+   - `<iframe>` is used to embed external content like web pages or videos.
+   - Common attributes:
+       - `src`: The URL of the content to be embedded.
+       - `width` & `height`: Set the size of the iframe.
+       - `allowfullscreen`: Enables fullscreen mode for videos or other media.
+       - `referrerpolicy`: Controls referrer information sharing.
+   - Important Notes:
+       - Use sparingly to avoid performance issues.
+       - Ensure secure URLs in the `src` attribute.
+       - Use the `sandbox` attribute to enhance security by restricting iframe behavior.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACKNOWLEDGE ME!</title>
+</head>
+
+<body>
+    <header>
+        <h1>ACKNOWLEDGE ME!</h1>
+    </header>
+
+    <section>
+        <h2>I am the highest in the room</h2>
+        <audio src="assets/media/highest.mp3" controls>
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <section>
+        <h2>MY AURA</h2>
+        <video src="assets/media/burock.mp4" width="640" height="360" controls>
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section>
+        <h2>LONG LIVE BANGLADESH</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FHMO9RYeUE0?si=KDbAwrrqp-ayqW_v"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+    </section>
+
+    <footer>
+        <p>Learning HTML with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>
