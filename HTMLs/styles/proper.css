@@ -1,0 +1,36 @@
+/* Styling navigation items */
+nav > ul > li {
+    display: inline; /* Aligns list items horizontally */
+    margin-right: 15px; /* Adds space between items */
+}
+
+nav li > a {
+    text-decoration: none; /* Removes underline from links */
+}
+
+/* Footer styling */
+footer {
+    margin-top: 20px; /* Adds spacing above the footer */
+    text-align: center; /* Centers the footer text */
+}
+
+/* Image styling inside <figure> */
+figure {
+    text-align: center; /* Centers the figure content */
+    margin: 20px auto; /* Adds space around the figure */
+    max-width: 80%; /* Restricts figure width to 80% of the container */
+}
+
+figure img {
+    max-width: 100%; /* Ensures the image fits within the container */
+    height: auto; /* Maintains aspect ratio */
+    border: 2px solid #000; /* Optional: Adds a border to the image for emphasis */
+    border-radius: 5px; /* Optional: Slightly rounds the corners */
+}
+
+figure figcaption {
+    margin-top: 10px; /* Adds space between image and caption */
+    font-style: italic; /* Optional: Italicized text for the caption */
+    font-weight: bolder;
+    text-align: center; /* Centers the caption text */
+}

@@ -1,0 +1,74 @@
+<!-- 
+`<nav>`: Represents a container for navigation links.
+       - Commonly used for menus, links to sections, or pages.
+
+VScode Shortcut:
+   - `li*n > a`:
+       - Creates `n` `<li>` elements each containing an `<a>` tag.
+       - Press `Tab` to navigate and fill in content step by step.
+       - "Emmet" does this
+
+   - `nav > ul { display: flex; }`:
+       - Displays navigation items horizontally.
+   - `nav li { list-style: none; }`:
+       - Removes bullet points from list items.
+   - `nav li:hover { background-color: ...; }`:
+       - Adds hover effect to list items.
+   - `nav li a { text-decoration: none; color: ...; }`:
+       - Removes underline from links and sets link color.
+    
+   `>` (Direct Child Selector):
+       - Applies styles **only to immediate children** of the parent element.
+       - Example: `nav > ul` will target `<ul>` that is directly inside `<nav>` but 
+        **not nested `<ul>` inside other `<li>`.
+
+Benefits of `<ul>` and `<li>` for Navigation:
+   - Simplifies navigation management.
+   - Improves readability and structure of navigation menus.
+   - Allows easy styling and responsive adjustments.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Navigation Example</title>
+    <link rel="stylesheet" href="styles/nav.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <!-- Top-level navigation -->
+            <li><a href="html_intro_title_favicon.html" target="_blank">Home</a></li>
+            <li>
+                <a href="html_form.html" target="_blank">About</a>
+                <!-- Nested navigation -->
+                <ul>
+                    <li><a href="basicCSS_backgroundimage_inlineblockdisplay.html" target="_blank">Our Mission</a></li>
+                    <li>
+                        <a href="git_version_control_system.html" target="_blank">History</a>
+                        <!-- Second-level nested navigation -->
+                        <ul>
+                            <li><a href="html_table.html" target="_blank">Founding</a></li>
+                            <li><a href="joey.jpg" target="_blank">Modern Era</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="html_anchor_href_target.html" target="_blank">Services</a>
+                <ul>
+                    <li><a href="git_branch_pull.html" target="_blank">Web Design</a></li>
+                    <li><a href="html_flexbox.html" target="_blank">SEO</a></li>
+                </ul>
+            </li>
+            <li><a href="html_audio_video_link.html" target="_blank">Blog</a></li>
+            <li><a href="basicCSS_selectors.html" target="_blank">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

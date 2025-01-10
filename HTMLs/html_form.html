@@ -1,0 +1,101 @@
+<!-- 
+HTML Form Elements Overview:
+   - `<form>`: Creates a form for user input.
+   - `<label>`: Provides a label for input fields.
+       - Style with `display: block` to stack labels and inputs vertically.
+       - Add `margin` for spacing.
+   - `<input>`: Collects user input.
+       - Types: `text`, `email`, `radio`, `checkbox`, etc.
+   - `<fieldset>`: Groups related input elements together.
+   - `<legend>`: Provides a caption for a `<fieldset>`.
+   - `<textarea>`: Collects multi-line text input.
+   - Buttons:
+       - `reset`: Clears all fields in the form.
+       - `submit`: Submits the form data.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTC Acknowledgement Form</title>
+    <style>
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        fieldset {
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>OTC Acknowledgement Form</h1>
+
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+
+        <fieldset>
+            <legend>Choose your acknowledgement type</legend>
+
+            <label>
+                <input type="radio" name="am">
+                Option 1
+            </label>
+            <label>
+                <input type="radio" name="am">
+                Option 2
+            </label>
+            <label>
+                <input type="radio" name="am">
+                Option 3
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Select all that apply</legend>
+
+            <label>
+                <input type="checkbox" name="options[]">
+                Option 1
+            </label>
+            <label>
+                <input type="checkbox" name="options[]">
+                Option 2
+            </label>
+            <label>
+                <input type="checkbox" name="options[]">
+                Option 3
+            </label>
+        </fieldset>
+
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Write your comments here"></textarea>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

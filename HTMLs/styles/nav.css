@@ -1,0 +1,95 @@
+/* 
+CSS Notes:
+   - `top`: Sets the vertical position of an element relative to its parent.
+       - Example: `top: 100%;` places the submenu directly below the parent item.
+   - `left`: Sets the horizontal position of an element relative to its parent.
+       - Example: `left: 0;` aligns the submenu with the left edge of the parent.
+*/
+
+/* Styling the main navigation bar */
+nav > ul {
+    display: flex; /* Aligns top-level navigation items horizontally */
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+/* Styling each list item */
+nav li {
+    list-style: none; /* Removes bullet points */
+    margin-right: 15px; /* Adds spacing between items */
+    position: relative; /* Enables positioning for nested menus */
+}
+
+/* Top-level links */
+nav li > a {
+    text-decoration: none; /* Removes underline from links */
+    color: #333; /* Sets text color */
+    padding: 10px 15px; /* Adds padding for clickable area */
+    display: block; /* Makes the entire area clickable */
+    box-sizing: border-box; /* Ensures consistent padding and border calculation */
+}
+
+/* Nested submenus */
+nav li > ul {
+    display: none; /* Hides nested menus by default */
+    position: absolute; /* Positions the submenu relative to parent */
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes padding */
+    margin: 0; /* Removes margin */
+    background-color: #fff; /* Sets background color */
+    border: 1px solid #ccc; /* Adds a border around submenus */
+    box-sizing: border-box; /* Ensures padding and border are included in width */
+}
+
+/* Second-level nested menus */
+nav li > ul > li > ul {
+    display: none; /* Hides nested menus by default */
+    position: absolute; /* Positions submenu relative to parent */
+    top: 0; /* Aligns with the parent vertically */
+    left: 100%; /* Positions submenu directly to the right of the parent menu */
+    margin: 0; /* Removes any margin */
+    padding: 0; /* Removes any padding */
+    background-color: #fff; /* Sets background color */
+    border: 1px solid #ccc; /* Adds border for visibility */
+    width: 150px; /* Sets a fixed width for second-level submenus */
+    box-sizing: border-box; /* Ensures consistent box model */
+}
+
+/* Display nested menus on hover */
+nav li:hover > ul {
+    display: block; /* Shows first-level submenu on hover */
+}
+
+nav li > ul > li:hover > ul {
+    display: block; /* Shows second-level submenu on hover */
+}
+
+/* Hover effect for list items */
+nav li:hover > a {
+    background-color: #f0f0f0; /* Changes background color on hover */
+    color: #000; /* Changes text color on hover */
+}
+
+/* Nested submenu items */
+nav li > ul > li {
+    padding: 10px; /* Adds padding to submenu items */
+    margin: 0; /* Ensures no additional gaps */
+    width: 100%; /* Ensures submenu items fit the width of their container */
+    box-sizing: border-box; /* Prevents text overflow by including padding in width */
+}
+
+/* Links inside submenus */
+nav li > ul > li > a {
+    text-decoration: none; /* Removes underline from submenu links */
+    color: #555; /* Sets text color for submenu links */
+    display: block; /* Makes the entire area clickable */
+    padding: 10px; /* Adds padding for better spacing */
+    box-sizing: border-box; /* Ensures consistent padding */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
+/* Hover effect for submenu items */
+nav li > ul > li:hover {
+    background-color: #e0e0e0; /* Changes background color of submenu items on hover */
+}

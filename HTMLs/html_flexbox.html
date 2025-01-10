@@ -1,0 +1,85 @@
+<!-- 
+CSS Flexbox Overview:
+   - Flexbox is used to create responsive and flexible layouts.
+   - Key Terms:
+       - Flex Container: Parent element with `display: flex;`.
+       - Flex Items: Direct child elements of the flex container.
+   - Common Container Properties:
+       - `flex-direction`: Defines the direction of items (row, column, etc.).
+       - `justify-content`: Aligns items horizontally.
+           - Options: `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`.
+       - `align-items`: Aligns items vertically.
+           - Options: `stretch`, `flex-start`, `flex-end`, `center`, `baseline`.
+       - `flex-wrap`: Controls whether items wrap onto the next line.
+           - Options: `nowrap` (default), `wrap`, `wrap-reverse`.
+   - Common Item Properties:
+       - `flex-grow`: Controls how much an item will grow relative to others.
+       - `flex-shrink`: Controls how much an item will shrink relative to others.
+       - `order`: Defines the order of an item.
+
+    flex is mainly used in the parent(flex-container), to control the child(flex-item) elements.
+    justify-content:space-around; to justify properly
+    space-between: gap between the elements
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Example</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: space-evenly;
+            background-color: #f0f0f0;
+            padding: 15px;
+            height: 350px;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item-1</div>
+        <div class="flex-item">Item-2</div>
+        <div class="flex-item">Item-3</div>
+        <div class="flex-item">Item-4</div>
+        <div class="flex-item">Item-5</div>
+        <div class="flex-item">Item-6</div>
+        <div class="flex-item">Item-7</div>
+        <div class="flex-item">Item-8</div>
+        <div class="flex-item">Item-9</div>
+        <div class="flex-item">Item-10</div>
+        <div class="flex-item">Item-11</div>
+        <div class="flex-item">Item-12</div>
+        <div class="flex-item">Item-13</div>
+        <div class="flex-item">Item-14</div>
+        <div class="flex-item">Item-15</div>
+        <div class="flex-item">Item-16</div>
+        <div class="flex-item">Item-17</div>
+        <div class="flex-item">Item-18</div>
+        <div class="flex-item">Item-19</div>
+        <div class="flex-item">Item-20</div>
+    </div>
+</body>
+
+</html>
