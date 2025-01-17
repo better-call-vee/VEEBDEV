@@ -1,0 +1,104 @@
+<!-- 
+CSS Flexbox Overview:
+   - Flexbox is a layout model designed for one-dimensional layouts.
+   - It simplifies alignment, spacing, and distribution of elements inside a container.
+
+Flex Container Properties:
+   - `display: flex;` turns a container into a flex container.
+   - `justify-content`: Aligns items along the main axis.
+       - `flex-start` (default): Items align to the start of the container.
+       - `center`: Items align at the center of the container.
+       - `flex-end`: Items align at the end of the container.
+       - `space-between`: Items are evenly spaced, with the first item at the start and the last at the end.
+       - `space-around`: Items have equal space around them.
+       - `space-evenly`: Items have equal space between and around them.
+   - `align-items`: Aligns items along the cross axis.
+       - `stretch` (default): Items stretch to fill the container (if no height is set).
+       - `center`: Items align at the center of the cross axis.
+       - `flex-start`: Items align to the start of the cross axis.
+       - `flex-end`: Items align to the end of the cross axis.
+       - `baseline`: Items align based on their text baseline.
+   - `flex-direction`: Defines the direction of the main axis.
+       - `row` (default): Items are placed from left to right.
+       - `row-reverse`: Items are placed from right to left.
+       - `column`: Items are placed from top to bottom.
+       - `column-reverse`: Items are placed from bottom to top.
+   - `flex-wrap`: Determines if items wrap onto multiple lines.
+       - `nowrap` (default): Items stay on one line.
+       - `wrap`: Items wrap onto multiple lines.
+       - `wrap-reverse`: Items wrap onto multiple lines in reverse order.
+
+Flex Item Properties:
+   - Can be applied to child elements of a flex container.
+   - Common properties include:
+       - `flex-grow`: Defines how much space an item should take up relative to others.
+       - `flex-shrink`: Defines how items shrink when space is limited.
+       - `flex-basis`: Defines the initial size of an item before growing or shrinking.
+       - `align-self`: Overrides the `align-items` property for a specific item.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout Example</title>
+    <style>
+        /* Flex container styling */
+        .container {
+            display: flex; /* Enables flexbox layout */
+            justify-content: space-around; /* Distributes items evenly with space around them */
+            align-items: center; /* Aligns items vertically at the center */
+            flex-direction: row; /* Arranges items in a row (default) */
+            flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
+            border: 2px solid black; /* Adds a border around the container */
+            height: 300px; /* Sets height for visualization */
+        }
+
+        /* Flex item styling */
+        .box {
+            border: 2px dashed blue; /* Dashed border for each box */
+            width: 100px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            text-align: center; /* Centers text inside the box */
+            display: flex; /* Enables flex layout within the box */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            background-color: lightgray; /* Background color for better visibility */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flexbox Layout Example</h1>
+    </header>
+
+    <!-- Flex container with flex items -->
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+        <div class="box">Box 6</div>
+        <div class="box">Box 7</div>
+        <div class="box">Box 8</div>
+        <div class="box">Box 9</div>
+        <div class="box">Box 10</div>
+        <div class="box">Box 11</div>        
+        <div class="box">Box 12</div>        
+        <div class="box">Box 13</div>        
+        <div class="box">Box 14</div>        
+        <div class="box">Box 15</div>        
+        <div class="box">Box 16</div>        
+
+    </div>
+
+    <footer>
+        <p>Learning Flexbox with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>

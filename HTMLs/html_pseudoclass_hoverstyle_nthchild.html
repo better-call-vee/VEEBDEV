@@ -1,0 +1,92 @@
+<!-- 
+CSS Pseudo-classes Overview:
+   - Pseudo-classes define the special state of an element.
+   - Commonly used pseudo-classes include:
+       - `:hover`: Styles when the user hovers over an element.
+       - `:focus`: Styles when an element is focused (e.g., form input).
+       - `:visited`: Styles for links that have been visited.
+       - `:first-child`: Styles the first child of an element.
+       - `:last-child`: Styles the last child of an element.
+       - `:nth-child()`: Styles specific children based on a pattern.
+
+Examples:
+   - Hover: Change background color when hovering over an element.
+   - Focus:
+       - Change text color, outline, and border for focused form elements.
+   - Visited: Change the color of visited anchor links.
+   - nth-child():
+       - `nth-child(2n)`: Targets even children.
+       - `nth-child(2n+1)`: Targets odd children.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-classes Example</title>
+    <style>
+        /* Hover: Change background color */
+        button:hover {
+            background-color: lightblue;
+        }
+
+        /* Focus: Change text color, outline, and border */
+        input:focus {
+            color: purple;
+            outline: 0;
+            border: 2px solid purple;
+        }
+
+        /* Visited: Change anchor link color */
+        a:visited {
+            color: gray;
+        }
+
+        /* Last child: Change text color */
+        li:last-child {
+            color: red;
+        }
+
+        /* First child: Change background color */
+        li:first-child {
+            background-color: lightgreen;
+        }
+
+        /* nth-child: Target even and odd children */
+        li:nth-child(2n) {
+            color: blue;
+            /* Even */
+        }
+
+        li:nth-child(2n+1) {
+            color: orange;
+            /* Odd */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button to demonstrate hover -->
+    <button>Hover over me!</button>
+
+    <!-- Form to demonstrate focus -->
+    <form>
+        <input type="text" placeholder="Focus on me!" />
+    </form>
+
+    <!-- Anchor to demonstrate visited -->
+    <a href="https://example.com" target="_blank">Visit Example</a>
+
+    <!-- List to demonstrate child selectors -->
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+        <li>Fifth item</li>
+    </ul>
+</body>
+
+</html>

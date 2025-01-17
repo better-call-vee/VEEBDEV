@@ -1,0 +1,91 @@
+<!-- 
+   - The `calc()` function is used to perform calculations directly in CSS.
+   - It is especially useful for dynamically calculating dimensions, margins, padding, and positions.
+   - Syntax: calc(expression)
+       - Example: `width: calc(100% - 50px);`
+   - The `calc()` function can mix units (%, px, em, etc.).
+   - Important Notes:
+       - Always include spaces around operators (`+`, `-`, `*`, `/`) for compatibility.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS calc() Example</title>
+    <style>
+        /* General container styling */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /* Margin between rows */
+        }
+
+        /* Full-row image */
+        .full-row {
+            width: 100%;
+            /* Occupies the full row */
+            height: 300px;
+            margin: 10px 0;
+            /* Top and bottom margins */
+        }
+
+        /* Flex container for the second row */
+        .second-row {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+            height: 300px;
+            /* Margin between columns */
+        }
+
+        /* Half-width image in the second row */
+        .half-width {
+            flex: 1;
+            /* Occupies half the width of the row */
+            height: 300px;
+            /* Static height */
+        }
+
+        /* Flex container for the second half of the second row */
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            /* Margin between images */
+            flex: 1;
+            height: 300px;
+        }
+
+        /* Images in the column, using calc() for dynamic height */
+        .column-image {
+            /* Full width within the column */
+            height: calc((100% - 5px) / 2);
+            /* Dynamic height calculation */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Full-row image -->
+    <img src="assets/dorime.jpg" alt="Dorime" class="full-row">
+
+    <!-- Second row with two halves -->
+    <div class="second-row">
+        <!-- Half-width image -->
+        <img src="assets/Spidey.jpg" alt="Spidey" class="half-width">
+
+        <!-- Column with two images -->
+        <div class="flex-column" >
+            <img src="assets/dorime.jpg" alt="Dorime in column" class="column-image">
+            <img src="assets/Spidey.jpg" alt="Spidey in column" class="column-image">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!-- 
+1. Introduction to Grid:
+   - CSS Grid is a two-dimensional layout system, allowing precise control over rows and columns.
+
+2. Grid Container Properties:
+   - `display: grid;`: Enables grid layout for the container.
+   - `grid-template-columns`: Defines the column structure in the grid.
+       - Syntax options:
+           - `grid-template-columns: x y z ...;` 
+               - Specifies the size of each column directly (e.g., `100px 200px auto`).
+           - `grid-template-columns: repeat(times, size);`
+               - Repeats a column size a specified number of times (e.g., `repeat(3, 100px)` creates three 100px-wide columns).
+           - `grid-template-columns: repeat(times, fr);`
+               - Distributes space equally using the fractional unit (`fr`), with `repeat(3, 1fr)` creating three equal columns.
+           - Additional syntax:
+               - `repeat(times, nfr)`: Multiplies the fractional space (`nfr`), useful for proportional layouts.
+       - Example: `grid-template-columns: repeat(3, 1fr);` divides the container into three equal parts.
+   - `justify-content`: Aligns the entire grid along the horizontal axis (e.g., `start`, `center`, `end`, `space-between`, etc.).
+
+   - 'auto' takes the remaining space.
+3. Grid Item Properties:
+   - Styling individual items inside the grid container:
+       - Add borders or other styles to define item boundaries.
+
+4. Emmet Shortcut:
+   - To generate multiple items dynamically:
+       - Syntax: `.item{Item - $}*20`
+       - This creates 20 `.item` elements labeled "Item - 1" to "Item - 20".
+
+5. Use Case Example:
+   - Creating a container with 3 equally spaced columns, aligning the grid, and styling the items.
+
+
+flex is one-dimensional, grid is n-dimensional
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+        /* Grid container styling */
+        .container {
+            display: grid;
+            /* Enables grid layout */
+            grid-template-columns: repeat(3, 1fr);
+            /* Creates 3 equal columns */
+            justify-content: center;
+            /* Aligns the grid horizontally at the center */
+            gap: 10px;
+            /* Adds spacing between grid items */
+        }
+
+        /* Grid item styling */
+        .item {
+            border: 2px solid black;
+            /* Adds a border to each item */
+            padding: 10px;
+            /* Adds inner spacing for better appearance */
+            text-align: center;
+            /* Centers the content inside each item */
+            background-color: lightblue;
+            /* Light background for visibility */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CSS Grid Layout Example</h1>
+    </header>
+
+    <!-- Grid container -->
+    <div class="container">
+        <!-- Emmet Shortcut Used:
+             .item{Item - $}*20 -->
+        <div class="item">Item - 1</div>
+        <div class="item">Item - 2</div>
+        <div class="item">Item - 3</div>
+        <div class="item">Item - 4</div>
+        <div class="item">Item - 5</div>
+        <div class="item">Item - 6</div>
+        <div class="item">Item - 7</div>
+        <div class="item">Item - 8</div>
+        <div class="item">Item - 9</div>
+        <div class="item">Item - 10</div>
+        <div class="item">Item - 11</div>
+        <div class="item">Item - 12</div>
+        <div class="item">Item - 13</div>
+        <div class="item">Item - 14</div>
+        <div class="item">Item - 15</div>
+        <div class="item">Item - 16</div>
+        <div class="item">Item - 17</div>
+        <div class="item">Item - 18</div>
+        <div class="item">Item - 19</div>
+        <div class="item">Item - 20</div>
+    </div>
+
+    <footer>
+        <p>Learning CSS Grid with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>

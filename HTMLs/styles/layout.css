@@ -1,0 +1,80 @@
+/* Grid Container Styling */
+.container {
+    display: grid;
+    grid-template-areas:
+        "hdr hdr hdr hdr"
+        "nv  mn  mn  sd"
+        "nv  mn  mn  ad"
+        "ft  ft  ft  ft";
+    gap: 10px; /* Space between grid items */
+}
+
+/* Shared Styling for Grid Items */
+.hdr,
+.nv,
+.mn,
+.sd,
+.ad,
+.ft {
+    background-color: #e0f7fa; /* Light teal for aesthetics */
+    border: 1px solid #00796b; /* Dark teal for borders */
+    padding: 10px; /* Inner padding for readability */
+    border-radius: 5px; /* Smooth rounded corners */
+}
+
+/* Grid Areas */
+.hdr {
+    grid-area: hdr; /* Header section */
+}
+
+.nv {
+    grid-area: nv; /* Navigation bar */
+}
+
+.mn {
+    grid-area: mn; /* Main content */
+}
+
+.sd {
+    grid-area: sd; /* Sidebar */
+    align-self: start; /* Align with the top of .mn */
+}
+
+.ad {
+    grid-area: ad; /* Advertisement */
+    align-self: start; /* Align the top of .ad with the top of its grid area */
+    justify-self: stretch; /* Stretch horizontally within its grid area */
+}
+
+/* Footer */
+.ft {
+    grid-area: ft; /* Footer */
+}
+
+/* Responsive Design for Mobile (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    .container {
+        grid-template-areas:
+            "hdr"
+            "nv"
+            "mn"
+            "sd"
+            "ad"
+            "ft";
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto auto auto auto auto auto; /* Row heights */
+    }
+}
+
+/* Responsive Design for Tablets (577px to 992px) */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .container {
+        grid-template-areas:
+            "hdr hdr hdr"
+            "nv  nv  nv"
+            "sd  mn  mn"
+            "ad  ft  ft";
+        grid-template-columns: 1fr 2fr 2fr; /* Adjust column widths */
+        grid-template-rows: auto 1fr auto; /* Simplify row heights */
+    }
+}

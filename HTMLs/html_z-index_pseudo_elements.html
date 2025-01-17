@@ -1,0 +1,129 @@
+<!-- 
+CSS Concepts: Z-index, Pseudo-elements, and Pseudo-classes
+
+Z-Index:
+   - Z-index controls the stack order of elements.
+   - Elements with a higher z-index appear in front of elements with a lower z-index.
+   - Works only on elements with a position other than `static` (e.g., `relative`, `absolute`, etc.).
+
+Pseudo-elements:
+   - `::before` and `::after`:
+       - Add content before or after an element without modifying the HTML.
+       - Commonly used with the `content` property.
+   - `::first-letter`:
+       - Targets the first letter of a block of text.
+   - `::first-line`:
+       - Styles the first line of a block of text.
+
+Pseudo-classes:
+   - `::selection`:
+       - Styles the part of the element highlighted by the user.
+   - `::placeholder`:
+       - Styles placeholder text in an input field.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Z-Index and Pseudo-elements</title>
+    <style>
+        /* Z-Index example with position: relative */
+        .z-index-example {
+            position: relative;
+            z-index: 2;
+            /* Element will appear above elements with lower z-index */
+            border: 2px dotted purple;
+            width: 300px;
+            margin-bottom: -50px;
+            /* Overlap for demonstration */
+        }
+
+        .background-box {
+            position: relative;
+            z-index: 1;
+            /* Lower stack order */
+            background-color: lightgray;
+            border: 2px dotted gray;
+            width: 300px;
+        }
+
+        /* ::before and ::after pseudo-elements */
+        h3::before {
+            content: '📁';
+            /* Adds an icon before the text */
+            margin-right: 5px;
+        }
+
+        h3::after {
+            content: '.pdf';
+            /* Adds text after the heading */
+            color: red;
+            margin-left: 5px;
+        }
+
+        /* ::first-letter and ::first-line */
+        p::first-letter {
+            font-size: 2em;
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        p::first-line {
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        /* ::selection pseudo-class */
+        ::selection {
+            background-color: yellow;
+            /* Highlight color for text selection */
+            color: black;
+            /* Text color for selected text */
+        }
+
+        /* ::placeholder pseudo-class */
+        input::placeholder {
+            color: gray;
+            font-style: italic;
+        }
+
+        /* Styling for images */
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Z-Index Example -->
+    <div class="z-index-example">
+        <img src="assets/Spidey.jpg" alt="Spidey">
+        <p>Higher Z-Index Element</p>
+    </div>
+    <div class="background-box">
+        <img src="assets/cat.jpg" alt="Cat">
+        <p>Lower Z-Index Element</p>
+    </div>
+
+    <!-- ::before and ::after Example -->
+    <h3>My Document</h3>
+
+    <!-- ::first-letter and ::first-line Example -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae dictum lorem, at convallis magna. Sed vel
+        felis id felis suscipit venenatis.</p>
+
+    <!-- ::selection Example -->
+    <p>Select any part of this text to see the selection styles applied.</p>
+
+    <!-- ::placeholder Example -->
+    <form>
+        <input type="text" placeholder="Enter your text here" />
+    </form>
+</body>
+
+</html>

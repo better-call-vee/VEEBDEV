@@ -1,0 +1,97 @@
+<!-- 
+CSS Grid Overview:
+   - The `grid-area` property defines where an item is placed in a grid.
+   - It can be used in two ways:
+       - **Naming Areas**: Assigns a name to grid items for use with `grid-template-areas`.
+       - **Shorthand Placement**: Specifies row and column start and end lines.
+   - **Syntax**:
+       - `grid-area: row-start / column-start / row-end / column-end;`
+       - Example: `grid-area: 1 / 2 / 3 / 4;`
+   - **Naming Areas**:
+       - Works with `grid-template-areas` to visually structure layouts.
+       - Example:
+         ```
+         grid-template-areas:
+           "header header"
+           "sidebar main"
+           "footer footer";
+         ```
+         Assign grid items using `grid-area: header;` or similar.
+   - **Shorthand Placement**:
+       - Allows precise placement using row and column line numbers.
+
+   - **Advantages**:
+       - Simplifies layout creation.
+       - Improves code readability and reduces repetition.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout with grid-area</title>
+    <style>
+        /* Grid container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 equal columns */
+            grid-template-rows: repeat(3, 100px) 50px 50px;
+            /* 3 rows of 100px and 2 rows of 50px */
+            gap: 10px;
+        }
+
+        /* Naming grid areas */
+        .header {
+            grid-area: header;
+            background-color: #aaa;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #bbb;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #ccc;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #ddd;
+        }
+
+        /* Explicit placement */
+        .box-1 {
+            grid-area: 1 / 1 / 3 / 3;
+            /* Row 1 to 3, Column 1 to 3 */
+            background-color: #e67e22;
+        }
+
+        .box-2 {
+            grid-area: 2 / 3 / 4 / 5;
+            /* Row 2 to 4, Column 3 to 5 */
+            background-color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Grid container -->
+    <div class="container">
+        <!-- Named areas -->
+        <div class="header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="main">Main Content</div>
+        <div class="footer">Footer</div>
+
+        <!-- Explicitly placed boxes -->
+        <div class="box-1">Box 1</div>
+        <div class="box-2">Box 2</div>
+    </div>
+</body>
+
+</html>

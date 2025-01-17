@@ -1,0 +1,74 @@
+<!-- 
+   - The `flex-wrap` property allows items in a flex container to wrap onto multiple lines.
+   - It helps create responsive layouts by adjusting the alignment of items when the container runs out of space.
+   - Common Values:
+       - `nowrap` (default): Items stay on a single line, even if they overflow the container.
+       - `wrap`: Items wrap onto multiple lines as needed.
+       - `wrap-reverse`: Items wrap onto multiple lines in reverse order.
+   - Example Use Case: Making a responsive layout similar to @media screen breakpoints.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Wrap Example</title>
+    <style>
+        /* Flex container styling */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Items will wrap onto the next line */
+            gap: 10px;
+            /* Adds spacing between items */
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        /* Flex items styling */
+        .item {
+            flex: 1 1 calc(33.33% - 20px);
+            /* Responsive size, considering gap */
+            background-color: #add8e6;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Example for smaller screens */
+        @media screen and (max-width: 600px) {
+            .item {
+                flex: 1 1 100%;
+                /* Adjusts items to take full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header for the page -->
+    <header>
+        <h1>Flex-Wrap with Responsive Layout</h1>
+    </header>
+
+    <div class="container">
+        <!-- Flex items -->
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </div>
+
+    <!-- Footer for the page -->
+    <footer>
+        <p>Flexbox responsiveness with flex-wrap!</p>
+    </footer>
+</body>
+
+</html>

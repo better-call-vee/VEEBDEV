@@ -1,0 +1,169 @@
+<!-- 
+
+1. Calendar Layout:
+   - Use a grid for arranging the days and dates in rows and columns.
+   - `grid-template-columns: repeat(7, 1fr);`: Creates 7 equal columns for days of the week.
+   - `grid-template-rows: 30px repeat(times, 50px);`: Defines a header row (30px height) and multiple rows (50px each) for dates.
+   - `row-gap` and `column-gap`: Add spacing between grid rows and columns.
+
+2. Styling Days and Dates:
+   - `.date` and `.day`:
+       - Use Flexbox for centering content.
+       - `justify-content: center;`: Horizontally centers content inside the item.
+       - `align-items: center;`: Vertically centers content.
+   - `border-radius`: Creates rounded corners for elements.
+   - `font-size: 1.5em`: Relative font size based on the parent element's font size.
+       - Explanation of `em`:
+           - 1em = 100% of the parent element's font size.
+           - Useful for responsive designs.
+
+3. CSS Cascading:
+   - Cascading ensures child elements inherit properties unless overridden.
+   - For example, `.day` can override `.date` properties.
+
+4. Dynamic Generation with Emmet:
+   - `.day {$}*7`: Generates 7 `.day` elements labeled "1" to "7".
+   - `.date {$}*35`: Generates 35 `.date` elements for the calendar.
+       - Adjust the last two numbers (31, 32) to start the next month (1, 2).
+       - Prepend the previous month's last three dates (29, 30, 31).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar with Grid and Flexbox</title>
+    <style>
+        /* Calendar container styling */
+        .calendar {
+            display: grid;
+            /* Enables grid layout */
+            grid-template-columns: repeat(7, 1fr);
+            /* Creates 7 equal columns */
+            grid-template-rows: 30px repeat(5, 50px);
+            /* Header row + 5 rows of dates */
+            row-gap: 5px;
+            /* Spacing between rows */
+            column-gap: 5px;
+            /* Spacing between columns */
+        }
+
+        /* Header styling for days */
+        .day {
+            background-color: lightgray;
+            /* Background for day names */
+            border-radius: 5px;
+            /* Rounded corners */
+            height: 30px;
+            /* Fixed height */
+            display: flex;
+            /* Enables Flexbox */
+            justify-content: center;
+            /* Centers content horizontally */
+            align-items: center;
+            /* Centers content vertically */
+            font-size: 1.2em;
+            /* Slightly larger font for days */
+            font-weight: bold;
+            /* Makes text bold */
+        }
+
+        /* Date styling */
+        .date {
+            background-color: skyblue;
+            /* Default background for dates */
+            border-radius: 5px;
+            /* Rounded corners */
+            height: 50px;
+            /* Fixed height for dates */
+            display: flex;
+            /* Enables Flexbox for centering */
+            justify-content: center;
+            /* Centers content horizontally */
+            align-items: center;
+            /* Centers content vertically */
+            font-size: 1.5em;
+            /* Font size relative to parent */
+        }
+
+        /* Specific styling for previous month and next month dates */
+        .prev-month,
+        .next-month {
+            background-color: lightcoral;
+            /* Different background for non-current month dates */
+            color: white;
+            /* White text color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Calendar with Grid and Flexbox</h1>
+    </header>
+
+    <!-- Calendar container -->
+    <div class="calendar">
+        <!-- Header for days of the week -->
+        <!-- Emmet Shortcut Used: .day {$}*7 -->
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+
+        <!-- Dates for the calendar -->
+        <!-- Emmet Shortcut Used: .date {$}*35 -->
+        <!-- Previous month's last three dates -->
+        <div class="date prev-month">29</div>
+        <div class="date prev-month">30</div>
+        <div class="date prev-month">31</div>
+
+        <!-- Current month's dates -->
+        <div class="date">1</div>
+        <div class="date">2</div>
+        <div class="date">3</div>
+        <div class="date">4</div>
+        <div class="date">5</div>
+        <div class="date">6</div>
+        <div class="date">7</div>
+        <div class="date">8</div>
+        <div class="date">9</div>
+        <div class="date">10</div>
+        <div class="date">11</div>
+        <div class="date">12</div>
+        <div class="date">13</div>
+        <div class="date">14</div>
+        <div class="date">15</div>
+        <div class="date">16</div>
+        <div class="date">17</div>
+        <div class="date">18</div>
+        <div class="date">19</div>
+        <div class="date">20</div>
+        <div class="date">21</div>
+        <div class="date">22</div>
+        <div class="date">23</div>
+        <div class="date">24</div>
+        <div class="date">25</div>
+        <div class="date">26</div>
+        <div class="date">27</div>
+        <div class="date">28</div>
+        <div class="date">29</div>
+        <div class="date">30</div>
+        <div class="date">31</div>
+
+        <!-- Next month's first two dates -->
+        <div class="date next-month">1</div>
+        <div class="date next-month">2</div>
+    </div>
+
+    <footer>
+        <p>Learning CSS Grid and Flexbox with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>

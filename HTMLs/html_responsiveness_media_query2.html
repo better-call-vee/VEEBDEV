@@ -1,0 +1,179 @@
+<!-- 
+Styling:
+   - Grid layout for structured display.
+   - Responsive design using media queries:
+       - Small devices (`max-width: 576px`): Single-column layout.
+       - Medium devices (`min-width: 577px` and `max-width: 992px`): Adjusts styles for medium-sized screens.
+
+ Emmet Syntax Used:
+   - `.cat*10 > img[src="assets/cat.jpg"] + h3{Caatoo - $} + p{Cats are like tiny, fuzzy ninjas with a PhD in 
+   sass and a minor in chaos.} + button{BUY THIS CATOO}`
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cat Catalog</title>
+    <style>
+        /* Grid container styling */
+        .container {
+            display: grid;
+            /* Enables grid layout */
+            grid-template-columns: repeat(3, 1fr);
+            /* Creates 3 equal-width columns */
+            gap: 20px;
+            /* Spacing between grid items */
+            padding: 20px;
+            /* Adds spacing around the container */
+        }
+
+        /* Individual item styling */
+        .cat {
+            border: 2px solid #ddd;
+            /* Light border around each item */
+            padding: 15px;
+            /* Inner spacing */
+            border-radius: 8px;
+            /* Rounded corners for aesthetic appeal */
+            text-align: center;
+            /* Centers text inside the item */
+        }
+
+        .cat img {
+            width: 100%;
+            /* Makes the image span the full width of its container */
+            height: auto;
+            /* Maintains aspect ratio */
+            border-radius: 5px;
+            /* Slightly rounds the image corners */
+        }
+
+        /* Button styling */
+        .cat button {
+            padding: 10px 20px;
+            /* Adds inner spacing */
+            margin-top: 10px;
+            /* Adds spacing above the button */
+            background-color: #007bff;
+            /* Button background color */
+            color: white;
+            /* Button text color */
+            border: none;
+            /* Removes button border */
+            border-radius: 5px;
+            /* Rounds the button corners */
+            cursor: pointer;
+            /* Changes cursor to pointer on hover */
+        }
+
+        .cat button:hover {
+            background-color: #0056b3;
+            /* Darkens the button background on hover */
+        }
+
+        /* Media query for small devices (max-width: 576px) */
+        @media screen and (max-width: 576px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+                /* Single-column layout */
+            }
+
+            .cat {
+                background-color: lightcyan;
+                /* Light background for smaller devices */
+            }
+        }
+
+        /* Media query for medium devices (577px to 992px) */
+        @media screen and (min-width: 577px) and (max-width: 992px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+                /* Two-column layout */
+            }
+            .cat {
+                background-color: lightsteelblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Responsive Cat Catalog</h1>
+    </header>
+
+    <!-- Catalog container -->
+    <div class="container">
+        <!-- Emmet Shortcut Used: 
+             .cat*10 > img[src="assets/cat.jpg"] + h3{Caatoo - $} + p{Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.} + button{BUY THIS CATOO} -->
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 1</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 2</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 3</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 4</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 5</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 6</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 7</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 8</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 9</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+        <div class="cat">
+            <img src="assets/cat.jpg" alt="Cat">
+            <h3>Caatoo - 10</h3>
+            <p>Cats are like tiny, fuzzy ninjas with a PhD in sass and a minor in chaos.</p>
+            <button>BUY THIS CATOO</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Learning Responsive Design with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>

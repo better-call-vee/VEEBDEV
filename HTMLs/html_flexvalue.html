@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex: 2 Example</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 10px;
+            /* Space between items */
+        }
+
+        .item {
+            background-color: darkgoldenrod;
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+
+        .item1 {
+            flex: 1;
+        }
+
+        /* Grows at a normal rate */
+        .item2 {
+            flex: 2;
+        }
+
+        /* Grows twice as fast */
+        .item3 {
+            flex: 3;
+        }
+
+        /* Grows three times as fast */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1">1 (flex: 1)</div>
+        <div class="item item2">2 (flex: 2)</div>
+        <div class="item item3">3 (flex: 3)</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!-- 
+CSS Positioning Overview:
+   - CSS positioning determines how elements are placed on the web page.
+   - Types of positioning:
+       - `static`: Default position. Elements flow naturally in the document.
+       - `relative`: Positions the element relative to its current position.
+           - Use `top`, `left`, `right`, `bottom` to adjust.
+           - Does not leave its original space.
+       - `absolute`: Positions the element relative to its nearest positioned ancestor.
+           - Removes the element from the normal document flow.
+       - `fixed`: Positions the element relative to the viewport.
+           - Stays in the same position even when scrolling.
+       - `sticky`: Switches between `relative` and `fixed`.
+           - Sticks to a specific position when scrolling past a threshold.
+
+Examples:
+   - Relative: Adjust the element’s position while keeping its original space intact.
+   - Absolute: Position based on the parent’s dimensions and loses its own flow.
+   - Sticky: Adheres to the top or other threshold values while scrolling.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example</title>
+    <style>
+        /* Style for the container */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Relative positioning with dotted border */
+        .relative-box {
+            position: relative;
+            left: 50px;
+            /* Moves 50px right from its current position */
+            top: 20px;
+            /* Moves 20px down from its current position */
+            border: 2px dotted blue;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        /* Absolute positioning with dotted border */
+        .absolute-box {
+            position: absolute;
+            left: 100px;
+            /* Moves 100px right relative to its parent */
+            top: 50px;
+            /* Moves 50px down relative to its parent */
+            border: 2px dotted red;
+            width: 300px;
+        }
+
+        /* Sticky positioning with dotted border */
+        .sticky-box {
+            position: sticky;
+            top: 10px;
+            /* Sticks to the top after 10px scroll */
+            border: 2px dotted green;
+            margin-top: 50px;
+            width: 300px;
+        }
+
+        /* Generic styling for images */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Parent container for absolute positioning */
+        .absolute-parent {
+            position: relative;
+            /* Necessary for absolute child positioning */
+            height: 200px;
+            margin-bottom: 20px;
+            border: 2px solid black;
+        }
+
+        .dummy {
+            border: 1px dotted blue;
+            margin: 100px 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Relative box with image -->
+        <div class="relative-box">
+            <img src="assets/cat.jpg" alt="Cat">
+            <p>Relative Position Example</p>
+        </div>
+
+        <!-- Parent container for absolute positioning -->
+        <div class="absolute-parent">
+            <!-- Absolute box with image -->
+            <div class="absolute-box">
+                <img src="assets/Spidey.jpg" alt="Spidey">
+                <p>Absolute Position Example</p>
+            </div>
+        </div>
+
+        <!-- Sticky box with image -->
+        <div class="sticky-box">
+            <img src="assets/dorime.jpg" alt="Dorime">
+            <p>Sticky Position Example</p>
+        </div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+        <div class="dummy"></div>
+    </div>
+</body>
+
+</html>

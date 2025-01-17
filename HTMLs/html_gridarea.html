@@ -1,0 +1,82 @@
+<!-- 
+Grid Layout and grid-area Notes:
+
+1. Grid Layout Overview:
+   - CSS Grid Layout is a two-dimensional system for arranging items into rows and columns.
+   - It allows creating responsive and flexible layouts without using floats or positioning.
+
+2. grid-area:
+   - Assigns a name to a grid item or positions it within the defined grid structure.
+   - Syntax:
+     - Name Assignment: `grid-area: area-name;` (used with `grid-template-areas`).
+     - Span Assignment: `grid-area: row-start / column-start / row-end / column-end;`.
+   - When used with `grid-template-areas`, it simplifies layout management by semantically defining sections.
+
+3. grid-template-areas:
+   - Defines named grid areas within the parent grid container.
+   - Syntax:
+     - Each string represents a row.
+     - Names define areas; a period (`.`) indicates empty space.
+
+4. Responsive Design:
+   - Use media queries to adjust grid-template-areas for various screen sizes.
+   - Simplifies layouts for smaller or larger screens for better user experience.
+
+5. Aside Tag:
+   - Represents tangential content (e.g., sidebars, ads) related to the main content.
+   - Improves semantic structure, accessibility, and SEO.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout and Areas</title>
+    <link rel="stylesheet" href="styles/layout.css">
+</head>
+
+<body class="container">
+    <!-- Header section -->
+    <header class="hdr">
+        <h1>A Header</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav class="nv">
+        <ul>
+            <li><a href="#">Nav 1</a></li>
+            <li><a href="#">Nav 2</a></li>
+            <li><a href="#">Nav 3</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="mn">
+        <article>
+            <h3>Main Article 1</h3>
+            <p>Visca el Barca, Visca Catalunya. We f*** Madrid regularly.</p>
+        </article>
+        <article>
+            <h3>Main Article 2</h3>
+            <p>Visca el Barca, Visca Catalunya. We f*** Madrid regularly.</p>
+        </article>
+    </main>
+
+    <!-- Sidebar section -->
+    <aside>
+        <div class="sd">
+            <h4>Sidebar</h4>
+        </div>
+        <div class="ad">
+            <h4>Advertise</h4>
+        </div>
+    </aside>
+
+    <!-- Footer section -->
+    <footer class="ft">
+        <h3>The Footer</h3>
+    </footer>
+</body>
+
+</html>
