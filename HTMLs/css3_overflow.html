@@ -1,0 +1,126 @@
+<!--
+Ellipsis:
+   - The ellipsis (`text-overflow: ellipsis`) adds a "..." to text that overflows its container.
+   - Common use: Handling long text that cannot fit within a limited space.
+   - **Key Requirements**:
+       - `white-space: nowrap`: Prevents text from wrapping to a new line.
+       - `overflow: hidden`: Hides the overflowed part of the text.
+       - `text-overflow: ellipsis`: Adds the "..." for truncated text.
+
+```
+
+2. Overflow:
+   - Controls what happens when content overflows its container.
+   - **Possible Values**:
+       - `visible`: Default. Content overflows the container and is fully visible.
+       - `hidden`: Hides the overflowed content without scrollbars.
+       - `scroll`: Adds scrollbars (horizontal/vertical) for the overflowed content.
+       - `auto`: Adds scrollbars only when needed.
+
+
+3. White-space:
+   - Manages how whitespace inside an element is handled.
+   - **Possible Values**:
+       - `normal` (default): Collapses consecutive whitespace and breaks lines as necessary.
+       - `nowrap`: Prevents line breaks; content continues on the same line.
+       - `pre`: Preserves whitespace and line breaks as written in the source code.
+       - `pre-wrap`: Preserves whitespace but allows text to wrap to fit the container.
+       - `pre-line`: Collapses whitespace but preserves line breaks.
+       - `break-spaces` (CSS3): Like `pre-wrap`, but respects all spaces and tabs, with line breaks allowed.
+
+   Example:
+       ```
+       .white-space-example {
+           white-space: pre-wrap;
+       }
+       ```
+
+Important Notes:
+- Combine `text-overflow`, `overflow`, and `white-space` properties for effective text truncation or overflow handling.
+- Test designs to ensure compatibility across browsers and devices.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 3px solid steelblue;
+            overflow: auto;
+        }
+
+        /* #box-1 {
+            overflow: auto;
+            overflow-x: hidden;
+        } */
+
+        .ellipsis {
+            width: 200px;
+            border: 2px solid steelblue;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /*clip will keep it as it is*/
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p title="I am a barar baal, ami janina ki kortesi, Allah vorosha" class="ellipsis"> I am a barar baal, ami
+            janina ki kortesi, Allah vorosha </p>
+    </header>
+    <section>
+        <div id="box-1" class="box">
+            <h3>My Text Box 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quis ullam expedita ducimus tenetur
+                suscipit libero impedit odio quaerat repudiandae, a nesciunt doloremque blanditiis, id officiis
+                obcaecati excepturi quam? Nobis consectetur voluptate provident deserunt sit alias quis odit. Dolor
+                nobis nulla laudantium vitae veniam aliquam eos excepturi sed praesentium. Vel iste natus delectus eaque
+                distinctio accusamus voluptatibus consequatur commodi. Sapiente cumque perferendis asperiores nobis
+                numquam provident quam, nostrum facilis, laudantium voluptate eius totam inventore beatae maiores magni
+                vel pariatur architecto velit voluptates quasi iste? Quam, deleniti? Cum culpa, unde ab rerum eaque sunt
+                totam magnam minus soluta laudantium quia, itaque minima recusandae delectus saepe fugiat repudiandae
+                voluptate dolorum rem? Tempore, harum! Doloremque voluptatibus inventore distinctio quaerat illo
+                aliquam, quidem qui necessitatibus in ut placeat debitis reprehenderit ducimus explicabo laudantium
+                maiores voluptatum id consequatur ipsam optio. Quod pariatur magni magnam vel dicta eius, ullam quos
+                laborum repudiandae iure sit odio, itaque illo in impedit obcaecati! Nemo, quo reprehenderit! Maxime
+                sint, labore possimus sapiente obcaecati totam, distinctio facere voluptatem, quod facilis ab eum! Minus
+                itaque illum quibusdam hic explicabo perspiciatis ipsa necessitatibus repudiandae accusantium ducimus
+                voluptas vitae officia dolorem laudantium recusandae atque, dolore veniam doloribus deleniti autem
+                blanditiis ex iusto qui quia.</p>
+        </div>
+        <div class="box">
+            <h3>My Text Box 2</h3>
+            <p>Quas officia nihil accusamus, cum eius repudiandae doloremque at voluptates dolorum ullam corrupti
+                consectetur maiores dicta mollitia ducimus autem, pariatur libero voluptas itaque eligendi! Illo
+                assumenda, commodi at exercitationem aperiam autem veritatis minus eligendi aliquid minima excepturi cum
+                quia. Ipsum qui, cupiditate voluptatibus sit facere optio eligendi natus voluptates iure provident
+                deserunt labore porro doloribus facilis expedita mollitia vero asperiores libero odio quasi reiciendis
+                quis aliquam dolor? Velit odit alias tenetur provident at ad doloribus, perspiciatis dolorem nam
+                laboriosam perferendis cum voluptatibus nobis suscipit hic quisquam quia distinctio inventore voluptatum
+                fugiat dignissimos molestiae. Aut quasi aliquid, dicta tenetur odit, distinctio numquam, nihil optio
+                maxime totam molestiae commodi quidem praesentium pariatur ut autem quaerat natus fugiat doloremque eos!
+                Amet non itaque repellendus aut asperiores possimus rem cupiditate minima blanditiis! Corrupti
+                consequuntur enim in distinctio ipsa impedit? Sapiente, libero placeat. Cumque veritatis, ratione
+                doloremque doloribus eius magnam vel rerum odit delectus beatae, exercitationem hic! At nisi minima
+                dicta maiores odit? Accusamus esse cumque, exercitationem aliquam provident sapiente deserunt earum qui
+                possimus id ex, et alias explicabo quaerat reiciendis dolorem magni? Sint aperiam nisi dolor dolorum
+                autem, hic voluptas voluptate eaque totam explicabo, necessitatibus veniam temporibus qui fugit
+                cupiditate provident. Repellendus, qui repudiandae.</p>
+        </div>
+        <div class="box">
+            <h3>My Text Box 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos exercitationem porro eius nemo
+                dolore ratione laudantium perferendis delectus ex!</p>
+        </div>
+    </section>
+</body>
+
+</html>

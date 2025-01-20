@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            --primary-color: steelblue;
+            --secondary-color: blue;
+            --font-size: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+        }
+
+        h5 {
+            background-color: var(--primary-color);
+        }
+
+        .box {
+            border: 2px solid var(--secondary-color);
+            width: calc(100% - 300px);
+            /* 300px less than 100% width */
+        }
+
+        .box p {
+            color: var(--primary-color);
+            font-size: var(--font-size);
+        }
+
+        .sidebar {
+            background-color: lightblue;
+        }
+
+        .content {
+            background-color: lightgoldenrodyellow;
+        }
+
+        .container {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 200px calc(100% - 200px - 20px);
+            /* 20 px for gap  */
+            grid-template-rows: 500px;
+        }
+
+        /*
+        Same thing with Flex
+        .container {
+            display: flex;
+            gap: 20px;
+            height: 500px;
+        }
+
+        .sidebar {
+            flex: 0 0 200px;
+
+            or, width: 200px, then use flex-grow: 1; in the content.
+            
+            background-color: lightblue;
+        }
+
+        .content {
+            flex: 1;
+            background-color: lightgoldenrodyellow;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1> My Custom Properties </h1>
+    <h5> Also commonly known as CSS variables </h5>
+    <div class="box">
+        <h3> I am doing something</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsa aspernatur ratione, velit
+            corrupti nobis! Similique eum aspernatur ab! Amet, voluptatem? Veniam molestias distinctio, odit optio
+            dolores nobis ipsam architecto itaque! Maiores quam reiciendis vero, cupiditate fugiat repellat autem, fuga
+            sequi temporibus amet officiis dolores. Pariatur recusandae sunt consequatur assumenda!</p>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Main Content</div>
+    </div>
+
+</body>
+
+</html>

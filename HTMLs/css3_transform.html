@@ -1,0 +1,139 @@
+<!--
+   - The `transform` property applies 2D or 3D transformations to elements.
+   - Transforms modify elements' appearance without affecting their layout.
+   - Common transformation functions include:
+       - `translate()`
+       - `scale()`
+       - `rotate()`
+       - `skew()`
+       - `matrix()`
+       - 3D-specific: `rotateX()`, `rotateY()`, `translateZ()`, etc.
+
+Key Transformation Functions:
+
+1. Translate:
+   - Moves an element along the X, Y (2D), or Z (3D) axis.
+   - Syntax: `translate(tx, ty)`
+       - `tx`: Distance to move horizontally.
+       - `ty`: Distance to move vertically.
+       - Defaults: `tx = 0`, `ty = 0`.
+   - Example: `transform: translate(50px, 100px);`
+
+2. Scale:
+   - Resizes an element along the X and Y axes.
+   - Syntax: `scale(sx, sy)`
+       - `sx`: Scaling factor for the X-axis.
+       - `sy`: Scaling factor for the Y-axis (optional; defaults to `sx`).
+       - Values:
+           - `1`: Original size.
+           - `<1`: Shrinks element.
+           - `>1`: Enlarges element.
+   - Example: `transform: scale(1.5, 2);`
+
+3. Rotate:
+   - Rotates an element around its origin (center by default).
+   - Syntax: `rotate(angle)`
+       - `angle`: Rotation in degrees (`deg`) or radians (`rad`).
+           - Positive: Clockwise rotation.
+           - Negative: Counterclockwise rotation.
+   - Example: `transform: rotate(45deg);`
+
+4. Skew:
+   - Skews (shears) an element along the X or Y axis.
+   - Syntax:
+       - `skewX(angle)`: Skews along the X-axis.
+       - `skewY(angle)`: Skews along the Y-axis.
+       - `skew(angleX, angleY)`: Skews along both axes.
+   - Example: `transform: skew(30deg, 20deg);`
+
+5. Matrix:
+   - Combines multiple transformations in a single function.
+   - Syntax: `matrix(a, b, c, d, tx, ty)`
+       - `a`, `d`: Scale.
+       - `b`, `c`: Skew.
+       - `tx`, `ty`: Translate.
+   - Example: `transform: matrix(1, 0, 0.5, 1, 30, 50);`
+
+6. Perspective (3D-specific):
+   - Defines the distance between the viewer and the element.
+   - Must be combined with 3D transforms (e.g., `rotateX`, `rotateY`, `translateZ`).
+   - Example: `transform: perspective(500px) rotateX(45deg);`
+
+7. 3D Transformations:
+   - Enables transformations in 3D space.
+   - Common functions:
+       - `rotateX(angle)`: Rotates around the X-axis.
+       - `rotateY(angle)`: Rotates around the Y-axis.
+       - `translateZ(distance)`: Moves along the Z-axis.
+       - `scaleZ(factor)`: Scales along the Z-axis.
+   - Example: `transform: rotateY(45deg) translateZ(100px);`
+
+Chaining Transformations:
+   - Multiple transformations can be combined in a single `transform` property.
+   - Order matters: Each transformation is applied sequentially.
+   - Syntax: `transform: scale(0.5) rotate(45deg) translateX(30px);`
+
+Transform Origin:
+   - Controls the pivot point for transformations.
+   - Syntax: `transform-origin: x y z;`
+       - `x`, `y`: Specify the position (e.g., `center`, `50px`, `%`).
+       - `z`: Applies in 3D space (optional).
+   - Example: `transform-origin: 50% 50%;`
+
+
+   - `transform` doesn't affect the element's document flow.
+   - Use `transition` or `animation` to animate transformations smoothly.
+   - Most modern browsers support `transform`.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        body {
+            margin-left: 50px;
+        }
+
+        .container,
+        .inner {
+            width: 200px;
+            height: 200px;
+        }
+
+        .container {
+            border: 2px solid steelblue;
+            background-color: aquamarine;
+        }
+
+        .inner {
+            border: 2px solid brown;
+            background-color: palegoldenrod;
+            /* transform: rotate(-45deg);
+            transform: scale(0.5, 0.5); */
+            /* transform: scale(0.5) rotate(45deg) translateX(30px) translateY(-30px); */
+        }
+
+        .inner:hover {
+            transform: scale(0.5) rotate(45deg) translateX(30px) translateY(-30px);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Explore Transform & Translate</h2>
+    <div class="container">
+        <div class="inner">Inner 1</div>
+    </div>
+    <div class="container">
+        <div class="inner">Inner 2</div>
+    </div>
+    <div class="container">
+        <div class="inner">Inner 3</div>
+    </div>
+</body>
+
+</html>

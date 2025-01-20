@@ -1,0 +1,67 @@
+<!-- 
+CSS Flexbox Order Property Overview:
+   - The `order` property defines the order of a flex item within its container.
+   - By default, all items have an `order` value of `0`.
+   - Items with lower order values appear first.
+   - Items with the same order value follow their source order in the HTML.
+
+Key Points:
+   - Syntax: `order: <integer>;`
+   - Default value: `0`.
+   - Values can be positive or negative integers:
+       - Positive integers place items after the default order.
+       - Negative integers place items before the default order.
+
+Usage Example:
+   - Rearranging the order of flex items:
+       - Item 1: `order: 2;`
+       - Item 2: `order: -1;` (appears first due to a negative order value).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Order Property</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: lightgray;
+        }
+
+        .item {
+            padding: 10px;
+            background-color: skyblue;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .item1 {
+            order: 2;
+            /* This will appear last */
+        }
+
+        .item2 {
+            order: -1;
+            /* This will appear first */
+        }
+
+        .item3 {
+            order: 0;
+            /* Default order */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Example of the order property -->
+    <div class="container">
+        <div class="item item1">Item 1</div>
+        <div class="item item2">Item 2</div>
+        <div class="item item3">Item 3</div>
+    </div>
+</body>
+
+</html>
