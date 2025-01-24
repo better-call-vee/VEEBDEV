@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+Intro to Tailwind CSS:
+   - Tailwind CSS is a utility-first CSS framework for rapid UI development.
+   - Website: tailwindcss.com
+
+   Steps to Use Tailwind CSS:
+   1. Go to Tailwind CSS website -> Docs -> Play CDN.
+   2. Copy the script line for the CDN.
+   3. Include it in the `<head>` of your HTML document.
+   4. Use Tailwind's pre-defined utility classes to style your elements.
+
+   Key Concepts:
+   - Tailwind works with classes to apply styles directly in your HTML.
+   - Utility classes can be combined for advanced designs.
+   - Supports arbitrary values for more customization (e.g., `text-[10px]`).
+
+   Utility Class Reference:
+   - `mb`: Margin-bottom, used to add space below an element.
+       - Example: `mb-6` adds a margin-bottom of 1.5rem.
+   - `p`: Padding, adds space inside an element.
+       - Example: `p-4` adds 1rem padding on all sides.
+   - `bg`: Background, sets the background color.
+       - Example: `bg-blue-500` sets a blue background.
+   - `text`: Font size and color.
+       - Example: `text-3xl` sets a large font size, `text-gray-800` sets a gray color.
+   - `font`: Font weight or style.
+       - Example: `font-bold` sets bold text, `font-light` sets lighter text.
+   - `h`: Height, sets the height of an element.
+       - Example: `h-14` sets height to 3.5rem.
+   - `w`: Width, sets the width of an element.
+       - Example: `w-64` sets width to 16rem.
+   - `rounded`: Sets border-radius for rounded corners.
+       - Example: `rounded-md` sets medium-rounded corners.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Tailwind CSS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-blue-600 text-white text-center py-4">
+        <h1 class="text-4xl font-bold">Learning Tailwind CSS</h1>
+        <p class="text-lg">An Introduction to Utility-First CSS</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="p-6">
+
+        <!-- Section 1: Basic Styling -->
+        <section class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">John Cena's Time</h1>
+            <h3 class="text-xl text-gray-600">The last time is now</h3>
+            <p class="text-[0.7rem] text-gray-500 italic">You can't see me</p>
+            <!-- Demonstrates basic text styling classes in Tailwind CSS -->
+        </section>
+
+        <!-- Section 2: Typography and Customization -->
+        <section class="mb-6">
+            <h1 class="text-3xl font-extrabold text-blue-700">John Cena's Time</h1>
+            <h3 class="text-5xl text-red-500 font-semibold">The last time is now</h3>
+            <p class="text-[0.7rem] text-gray-600">You can't see me</p>
+
+            <!-- Font Weight and Alignment -->
+            <p class="font-bold">Royal Rumble 2025</p>
+            <p class="text-center font-bold text-3xl bg-orange-500 p-2 rounded-md">Center of the Rumble</p>
+        </section>
+
+        <!-- Section 3: Backgrounds, Borders, and Gradients -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Gradients and Borders</h2>
+            <div class="h-14 bg-gradient-to-t from-white to-red-500 border-8 border-gray-600 rounded-md"></div>
+            <!-- 
+                Classes Explained:
+                - `bg-gradient-to-t`: Creates a gradient background from bottom to top.
+                - `from-white to-red-500`: Specifies gradient colors.
+                - `border-8`: Adds an 8px border.
+                - `border-gray-600`: Specifies the border color.
+                - `rounded-md`: Adds medium-rounded corners.
+                - `h-14`: Sets the height of the element to 3.5rem.
+                - `mb-6`: Adds 1.5rem margin below the element.
+            -->
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p class="text-sm">Learning Tailwind CSS with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>
