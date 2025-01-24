@@ -1,0 +1,118 @@
+<!-- 
+CSS Specificity and Priority:
+    - Specificity determines which CSS rule is applied by the browser when multiple rules target the same element.
+    - Rules with higher specificity take precedence over those with lower specificity.
+    - Specificity is calculated using a scoring system based on the selectors used.
+
+Specificity Scoring:
+    - Inline Styles: Highest specificity. Scored as 1000.
+        - Example: `<div style="color: red;">`
+    - IDs: High specificity. Scored as 100.
+        - Example: `#header { color: blue; }`
+    - Classes, Attributes, Pseudo-classes: Medium specificity. Scored as 10.
+        - Example: `.title { color: green; }` or `[type="text"] { font-size: 14px; }`
+    - Elements and Pseudo-elements: Low specificity. Scored as 1.
+        - Example: `h1 { font-weight: bold; }` or `::after { content: ""; }`
+    - Universal Selector (*) and Inherited Rules: Lowest specificity. Scored as 0.
+        - Example: `* { margin: 0; }`
+
+Important Notes on Specificity:
+    - If two selectors have the same specificity, the later one in the CSS file is applied. (Cascading effect)
+    - Inline styles override external or internal CSS unless overridden by `!important`.
+    - The `!important` declaration:
+        - Overrides all other rules regardless of specificity.
+        - Example: `p { color: black !important; }`
+        - Use sparingly to avoid disrupting the cascade.
+
+Cascading:
+    - CSS rules cascade (combine) only when they have the same specificity.
+    - The browser applies the last declared rule in cases of equal specificity.
+    - Example:
+        ```css
+        p {
+            color: red; /* Applied first */
+        }
+        p {
+            color: blue; /* Applied last and takes precedence */
+        }
+        ```
+
+Priority Example:
+    - Inline > ID > Class > Element > Universal Selector
+    - Example:
+        ```html
+        <div id="main" class="container">
+            <p style="color: red;">This text will be red because inline styles take precedence.</p>
+        </div>
+        ```
+
+Universal Selector:
+    - The `*` selector targets all elements on the page.
+    - Useful for applying global styles but has the lowest specificity.
+    - Example:
+        ```css
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ```
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity and Priority</title>
+    <style>
+        /* Element selector - Low specificity (1) */
+        p {
+            color: green;
+        }
+
+        /* Class selector - Medium specificity (10) */
+        .highlight {
+            color: blue;
+        }
+
+        /* ID selector - High specificity (100) */
+        #special {
+            color: orange;
+        }
+
+        /* Inline style - Highest specificity (1000) */
+        /* Demonstrated in the inline `style` attribute below */
+
+        /* Universal selector - Lowest specificity (0) */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Using !important to override all */
+        .override {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CSS Specificity and Priority</h1>
+    </header>
+
+    <section>
+        <p>This paragraph is styled with a simple element selector.</p>
+        <p class="highlight">This paragraph is styled with a class selector.</p>
+        <p id="special">This paragraph is styled with an ID selector.</p>
+        <p style="color: purple;">This paragraph is styled with an inline style.</p>
+        <p class="highlight override">This paragraph uses both a class and `!important` declaration.</p>
+    </section>
+
+    <footer>
+        <p>Learning CSS Specificity with Programming Hero!</p>
+    </footer>
+</body>
+
+</html>
