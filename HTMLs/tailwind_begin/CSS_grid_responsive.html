@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Grid Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6 font-sans">
+    <!-- Responsive Grid and Grid Span -->
+    <section class="p-4 border-2 border-gray-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Grid Basics</h2>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="bg-blue-500 text-white text-center p-4">Box 1</div>
+            <div class="bg-green-500 text-white text-center p-4">Box 2</div>
+            <div class="bg-purple-500 text-white text-center p-4">Box 3</div>
+            <div class="bg-orange-500 text-white text-center p-4 col-span-2">Box 4 (Col Span 2)</div>
+            <div class="bg-red-500 text-white text-center p-4">Box 5</div>
+        </div>
+        <!-- 
+            Notes:
+            - `grid`: Makes the container a grid.
+            - `grid-cols-3`: Defines 3 equal-width columns.
+            - `gap-4`: Adds 1rem space between grid items.
+            - `col-span-2`: Makes an item span 2 columns.
+        -->
+    </section>
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Responsive Grid Layout -->
+    <section class="p-4 border-2 border-blue-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Responsive Grid Layout</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="bg-blue-500 text-white text-center p-4">Item 1</div>
+            <div class="bg-green-500 text-white text-center p-4">Item 2</div>
+            <div class="bg-purple-500 text-white text-center p-4">Item 3</div>
+            <div class="bg-orange-500 text-white text-center p-4">Item 4</div>
+            <div class="bg-red-500 text-white text-center p-4 lg:col-span-2">Item 5</div>
+        </div>
+        <!-- 
+            Notes:
+            - Responsive prefixes:
+                - `grid-cols-2`: 2 columns for default screen sizes.
+                - `md:grid-cols-3`: 3 columns for medium screens (≥768px).
+                - `lg:grid-cols-4`: 4 columns for large screens (≥1024px).
+            - `gap-4`: Adds space between items.
+        -->
+    </section>
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Advanced Grid with Template Rows and Columns -->
+    <section class="p-4 border-2 border-green-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Grid with Custom Rows and Columns</h2>
+        <div class="grid grid-cols-3 grid-rows-3 gap-4">
+            <div class="bg-blue-500 text-white text-center p-4">Row 1, Col 1</div>
+            <div class="bg-green-500 text-white text-center p-4">Row 1, Col 2</div>
+            <div class="bg-purple-500 text-white text-center p-4">Row 1, Col 3</div>
+            <div class="bg-orange-500 text-white text-center p-4 row-span-2">Row 2-3, Col 1</div>
+            <div class="bg-red-500 text-white text-center p-4">Row 2, Col 2</div>
+            <div class="bg-yellow-500 text-black text-center p-4">Row 2, Col 3</div>
+        </div>
+        <!-- 
+            Notes:
+            - `grid-cols-3`: Defines 3 columns.
+            - `grid-rows-2`: Defines 2 rows.
+            - `row-span-2`: Makes an item span 2 rows.
+        -->
+    </section>
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- How to Search Tailwind Grid Classes -->
+    <section class="p-4 border-2 border-purple-600 rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">How to Search Tailwind Grid Utilities</h2>
+        <p>To quickly find grid classes in Tailwind:</p>
+        <ul class="list-disc ml-6">
+            <li>Visit the <a href="https://tailwindcss.com/docs/grid-template-rows" class="text-blue-500 underline"
+                    target="_blank">Grid Template Rows</a> or <a
+                    href="https://tailwindcss.com/docs/grid-template-columns" class="text-blue-500 underline"
+                    target="_blank">Grid Template Columns</a> in the Tailwind Docs.</li>
+            <li>Search for utilities like `grid-cols`, `gap`, `row-span`, and `col-span` to define layouts.</li>
+            <li>Combine responsive prefixes like `sm:grid-cols-2`, `md:grid-cols-4`, etc., for adaptive designs.</li>
+        </ul>
+    </section>
+</body>
+
+</html>

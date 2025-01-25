@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Responsive and Flex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6 font-sans">
+    <!-- Responsive Breakpoints and Borders -->
+    <section class="p-4 border-2 border-gray-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Responsive Design and Breakpoints</h2>
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+            Resize the window to see text size change based on breakpoints:
+            <br>
+            - `sm`: Small screens (≥640px).<br>
+            - `md`: Medium screens (≥768px).<br>
+            - `lg`: Large screens (≥1024px).<br>
+            - `xl`: Extra-large screens (≥1280px).<br>
+            - `2xl`: 2x Extra-large screens (≥1536px).
+        </p>
+    </section>
+
+    <hr class="my-6 border-2 border-fuchsia-400">
+
+    <!-- Flexbox Basics with Responsive Design -->
+    <section class="p-4 border-2 border-blue-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Flexbox Basics</h2>
+        <div class="flex flex-wrap justify-between items-center border-2 border-dashed border-red-400 p-4">
+            <div class="w-24 h-24 bg-blue-500 text-white flex items-center justify-center">Box 1</div>
+            <div class="w-24 h-24 bg-green-500 text-white flex items-center justify-center">Box 2</div>
+            <div class="w-24 h-24 bg-purple-500 text-white flex items-center justify-center">Box 3</div>
+            <div class="w-24 h-24 bg-orange-500 text-white flex items-center justify-center">Box 4</div>
+        </div>
+        <!-- 
+            Notes:
+            - `flex`: Makes the container a flexbox.
+            - `flex-wrap`: Allows items to wrap to the next row if they exceed container width.
+            - `justify-between`: Distributes space between items.
+            - `items-center`: Aligns items vertically to the center.
+            - Border Properties:
+                - `border-2`: 2px solid border.
+                - `border-dashed`: Dashed border style.
+                - `border-red-400`: Red border color.
+        -->
+    </section>
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Advanced Flexbox with Alignment -->
+    <section class="p-4 border-2 border-green-600 rounded-lg mb-6">
+        <h2 class="text-2xl font-bold mb-4">Flexbox with Justify and Align</h2>
+        <div class="flex justify-center items-center h-40 border-2 border-solid border-gray-400">
+            <div class="w-16 h-16 bg-blue-500 text-white flex items-center justify-center rounded-md">1</div>
+            <div class="w-16 h-16 bg-green-500 text-white flex items-center justify-center rounded-md mx-4">2</div>
+            <div class="w-16 h-16 bg-purple-500 text-white flex items-center justify-center rounded-md">3</div>
+        </div>
+        <!-- 
+            Notes:
+            - `justify-center`: Centers items horizontally.
+            - `items-center`: Centers items vertically.
+            - `h-40`: Sets the height of the container to 10rem.
+            - `mx-4`: Adds horizontal margin of 1rem (4px on both sides).
+        -->
+    </section>
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Using Tailwind Quick Search -->
+    <section class="p-4 border-2 border-purple-600 rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">How to Search Tailwind Classes</h2>
+        <p>To quickly find utility classes:</p>
+        <ul class="list-disc ml-6">
+            <li>Visit the <a href="https://tailwindcss.com/docs" class="text-blue-500 underline"
+                    target="_blank">Tailwind Docs</a>.</li>
+            <li>Use the search bar to find specific utilities like `flex`, `spacing`, `borders`, or `alignment`.</li>
+            <li>Check the examples provided for responsive and advanced use cases.</li>
+        </ul>
+    </section>
+
+</body>
+
+</html>

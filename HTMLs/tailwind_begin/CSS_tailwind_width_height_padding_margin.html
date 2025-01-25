@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans p-4">
+    <!-- Example for Width, Height, and Overflow -->
+    <section class="w-80 h-40 overflow-scroll border-4 border-blue-600 p-4">
+        <h3 class="text-lg font-bold">Royal Rumble 2025</h3>
+        <p class="text-sm">
+            John Cena is entering this year's Royal Rumble for the last time. He will be the 17th times record champion,
+            we are reckoning. This is a longer paragraph to demonstrate the `overflow-scroll` class. Scroll to see the
+            rest of this text.
+        </p>
+    </section>
+    <!-- 
+        Notes:
+        - `w-80`: Sets width to 20rem.
+        - `h-40`: Sets height to 10rem.
+        - `overflow-scroll`: Enables scrolling if the content overflows the container.
+    -->
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Margin and Padding (Spacing) Examples -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4">Spacing Examples</h2>
+
+        <!-- Margin Examples -->
+        <div class="bg-blue-500 text-white text-center w-48 mb-4">Margin Bottom (mb-4)</div>
+        <div class="bg-green-500 text-white text-center w-48 mt-6">Margin Top (mt-6)</div>
+        <div class="bg-red-500 text-white text-center w-48 mx-auto mt-4">Margin X (Horizontal Centering - mx-auto)</div>
+
+        <!-- Padding Examples -->
+        <div class="bg-yellow-500 text-black w-48 p-10 my-4">Padding All Sides (p-10)</div>
+        <div class="bg-purple-500 text-white w-48 px-8 py-2">Padding X and Y (px-8, py-2)</div>
+    </section>
+    <!-- 
+        Notes for Margin and Padding:
+        - Margin Classes:
+            - `m`: Margin for all sides.
+            - `mt`, `mb`, `ml`, `mr`: Margin for top, bottom, left, and right, respectively.
+            - `mx`: Horizontal margin (left and right).
+            - `my`: Vertical margin (top and bottom).
+            - Example: `mt-4` adds 1rem margin on top.
+        - Padding Classes:
+            - `p`: Padding for all sides.
+            - `pt`, `pb`, `pl`, `pr`: Padding for top, bottom, left, and right, respectively.
+            - `px`: Horizontal padding (left and right).
+            - `py`: Vertical padding (top and bottom).
+            - Example: `px-8` adds 2rem padding on left and right.
+    -->
+
+    <hr class="my-6 border-gray-400">
+
+    <!-- Margin and Padding Auto Example -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4">Auto Margin Example</h2>
+        <div class="bg-teal-500 text-white text-center w-64 h-16 mx-auto">
+            This div is horizontally centered with `mx-auto`.
+        </div>
+        <div class="bg-indigo-500 text-white text-center w-64 h-16 my-auto">
+            This div uses `my-auto` to vertically center within a flexbox parent.
+        </div>
+    </section>
+    <!-- 
+        Notes for Auto Margin:
+        - `mx-auto`: Automatically centers the element horizontally.
+        - `my-auto`: Automatically centers the element vertically (requires a flexbox or grid parent).
+    -->
+</body>
+
+</html>
