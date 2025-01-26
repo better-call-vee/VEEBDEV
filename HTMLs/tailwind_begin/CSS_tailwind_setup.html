@@ -1,0 +1,50 @@
+<!-- 
+**Tailwind CSS Setup**:
+   - `<script src="https://unpkg.com/@tailwindcss/browser@4"></script>`:
+       - Includes the Tailwind CSS library (version 4) via a CDN (Content Delivery Network).
+       - Provides utility-first CSS for rapid styling and customization of HTML elements.
+
+**Font Awesome Setup**:
+   - `<script src="https://kit.fontawesome.com/f7ec03c468.js" crossorigin="anonymous"></script>`:
+       - Adds Font Awesome icons via a CDN.
+       - The `crossorigin="anonymous"` attribute allows cross-origin requests for the script, enabling it to load correctly.
+
+**Tailwind Custom Configuration**:
+   - `<script>` Block:
+       - `tailwind.config`: Defines a custom configuration for Tailwind CSS.
+       - `theme.extend`: Extends the default theme to add custom styles.
+       - `colors.clifford: '#da373d'`:
+           - Adds a custom color named `clifford` with the hex value `#da373d`.
+           - Custom colors can be used in Tailwind classes (e.g., `bg-clifford`, `text-clifford`).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup</title>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <script src="https://kit.fontawesome.com/f7ec03c468.js" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Adding custom colors to Tailwind's theme
+                    colors: {
+                        clifford: '#da373d', // Clifford color (custom red)
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

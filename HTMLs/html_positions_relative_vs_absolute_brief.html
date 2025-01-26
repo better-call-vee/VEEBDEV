@@ -1,0 +1,64 @@
+<!-- 
+Notes on Positioning in CSS: Relative vs. Absolute
+
+1. **Position: `relative`**:
+   - What It Does:
+     - Moves the element **relative to its original position** in the document flow.
+     - The element still **reserves its space** in the layout.
+   - How It Works:
+     - You can use `top`, `right`, `bottom`, or `left` properties to shift the element.
+     - The element is **not removed** from the document flow, so other elements still interact with it as if it were in its original position.
+   - **One-Way Movement**:
+     - Yes, `relative` only shifts the element from its current position without affecting the surrounding layout structure.
+   - Example:
+     ```html
+     <div class="relative top-5 left-10 bg-blue-500 p-4">
+         I moved down by 5px and right by 10px.
+     </div>
+     ```
+
+   **Result**:
+   - The element appears shifted by `5px` down and `10px` right from its normal position, but it still occupies the original space in the layout.
+
+---
+
+2. **Position: `absolute`**:
+   - What It Does:
+     - Moves the element relative to its **nearest positioned ancestor** (an element with `relative`, `absolute`, or `fixed` positioning).
+     - If no positioned ancestor is found, it defaults to the `<html>` (or `<body>`) element.
+     - The element is **removed from the document flow**, meaning it no longer affects the positioning of other elements.
+   - How It Works:
+     - Use `top`, `right`, `bottom`, or `left` properties to place the element.
+   - Example:
+     ```html
+     <div class="relative">
+         <div class="absolute top-5 left-10 bg-red-500 p-4">
+             I am positioned relative to my parent!
+         </div>
+     </div>
+     ```
+
+   **Result**:
+   - The `absolute` element is positioned `5px` from the top and `10px` from the left **of the parent `relative` container**.
+
+---
+
+3. **Key Differences Between `relative` and `absolute`:**
+
+| Feature                  | `relative`                        | `absolute`                                |
+|--------------------------|-----------------------------------|-------------------------------------------|
+| **Reference Point**      | Original position in the document | Nearest positioned ancestor               |
+| **Document Flow**        | Stays in the flow (reserves space)| Removed from the flow (no space reserved) |
+| **Impact on Siblings**   | Affects layout of siblings        | Does not affect siblings                  |
+| **Practical Use**        | Adjust element slightly           | Precisely position an element             |
+
+-->
+
+<head>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<div class="relative bg-gray-100 h-64">
+    <div class="absolute top-10 left-10 bg-green-500 p-4">
+        I am absolutely positioned relative to my parent!
+    </div>
+</div>

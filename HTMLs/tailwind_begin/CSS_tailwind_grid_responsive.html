@@ -1,0 +1,144 @@
+<!-- 
+Overflow: Hidden and Responsiveness in the Code:
+
+1. **`overflow: hidden` in Tailwind CSS**:
+   - Class: `overflow-hidden`
+   - What it Does:
+     - Hides any content that overflows the bounds of the element (i.e., anything outside the element's box won't be visible).
+   - Why it's Used:
+     - In this code, the `overflow-hidden` class is applied to the `div` wrapping the product card.
+     - **Purpose**:
+       - Ensures that the content inside the card (e.g., the image, text) does not spill out of the card's boundaries.
+       - This is especially important when rounding the corners (`rounded-lg`) to maintain a clean and consistent design.
+     - **Example**:
+       ```html
+       <div class="rounded-lg shadow-md bg-gray-50 overflow-hidden">
+           <img class="mx-auto pt-4" src="./images/tea-1.png" alt="" />
+       </div>
+       ```
+       - Without `overflow-hidden`, if the image or content inside exceeds the boundaries, it may appear outside the rounded corners of the card.
+
+---
+
+2. **Responsiveness in the Code**:
+   - Tailwind makes responsiveness easy with its **mobile-first approach** using breakpoints (`sm`, `md`, `lg`, `xl`, etc.).
+   - **Grid Responsiveness**:
+     - Class: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4`
+       - `grid-cols-1`: On smaller screens (default), there will be **1 column**.
+       - `md:grid-cols-2`: On medium screens (min-width: 768px), the grid will adjust to **2 columns**.
+       - `lg:grid-cols-4`: On large screens (min-width: 1024px), the grid will display **4 columns**.
+     - This ensures the layout adapts seamlessly across devices.
+
+   **How the Responsiveness Works**:
+   - The `grid` utility creates a flexible grid container for the cards.
+   - The number of columns (`grid-cols-*`) dynamically changes based on the screen width, making the design responsive.
+
+   - **Gaps Between Cards**:
+     - Class: `gap-6`
+       - Adds consistent spacing between the grid items, regardless of the number of columns.
+
+   - **Centering Content**:
+     - Class: `text-center`
+       - Ensures the text inside each card (e.g., product name and description) is centered.
+
+---
+
+3. **Practical Flow of Responsiveness**:
+   - On a small screen (e.g., mobile):
+     - The cards will stack vertically (`grid-cols-1`).
+   - On a medium screen (e.g., tablet):
+     - The cards will form **2 columns** (`md:grid-cols-2`).
+   - On a large screen (e.g., laptop or desktop):
+     - The cards will form **4 columns** (`lg:grid-cols-4`).
+
+---
+
+4. **Key Tailwind Classes Used for Responsiveness**:
+   - `grid-cols-*`: Defines the number of columns in the grid at different breakpoints.
+   - `gap-*`: Adds spacing between grid items.
+   - `text-center`: Aligns text to the center of the card.
+   - `mx-auto`: Centers the grid container horizontally.
+   - `max-w-screen-xl`: Limits the width of the grid container for larger screens, keeping the layout visually balanced.
+
+---
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tea House</title>
+    <!-- Google font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <!-- Fontawesome cdn -->
+    <script src="https://kit.fontawesome.com/bbfc4be646.js" crossorigin="anonymous"></script>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <main class="max-w-screen-xl mx-auto px-16 lg:px-28">
+
+        <!-- Grid Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <!-- Product Card -->
+            <div class="rounded-lg shadow-md bg-gray-50 overflow-hidden">
+                <img class="mx-auto pt-4" src="./images/tea-1.png" alt="" />
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Milk Tea</h2>
+                    <p class="text-gray-600">
+                        Creamer could be replaced by fresh milk
+                    </p>
+                </div>
+            </div>
+            <!-- Product Card -->
+            <div class="rounded-lg shadow-md bg-gray-50 overflow-hidden">
+                <img class="mx-auto pt-4" src="./images/tea-2.png" alt="" />
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Black Tea</h2>
+                    <p class="text-gray-600">
+                        Creamer could be replaced by fresh milk
+                    </p>
+                </div>
+            </div>
+            <!-- Product Card -->
+            <div class="rounded-lg shadow-md bg-gray-50 overflow-hidden">
+                <img class="mx-auto pt-4" src="./images/tea-3.png" alt="" />
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Green Tea</h2>
+                    <p class="text-gray-600">
+                        Creamer could be replaced by fresh milk
+                    </p>
+                </div>
+            </div>
+            <!-- Product Card -->
+            <div class="rounded-lg shadow-md bg-gray-50 overflow-hidden">
+                <img class="mx-auto pt-4" src="./images/tea-4.png" alt="" />
+                <div class="p-4">
+                    <h2 class="font-bold text-xl">Lemon Tea</h2>
+                    <p class="text-gray-600">
+                        Creamer could be replaced by fresh milk
+                    </p>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+</body>
+
+</html>

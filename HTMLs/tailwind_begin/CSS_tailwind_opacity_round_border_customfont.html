@@ -1,0 +1,169 @@
+<!--
+
+**Opacity**:
+   - Class: `opacity-40`
+   - What It Does:
+     - Sets the transparency level of an element. A value of `opacity-40` makes the element **40% opaque (60% transparent)**.
+   - How It's Used:
+     - The **top card** and **bottom card** have reduced opacity to create a "dimmed" effect, making the **middle card** stand out visually.
+   - Opacity Values in Tailwind:
+     - `opacity-0`: Fully transparent.
+     - `opacity-40`: 40% opaque.
+     - `opacity-100`: Fully visible (no transparency).
+   - Example:
+     ```html
+     <div class="opacity-40">
+         This element is 60% transparent.
+     </div>
+     ```
+
+---
+
+**Rounded Borders with Padding**:
+   - **Rounded Borders**:
+     - Class: `rounded-full`
+       - Adds a **full border radius** to the corners of an element, making them rounded.
+       - Tailwind provides various levels of rounding:
+         - `rounded-none`: No rounding (sharp corners).
+         - `rounded-sm`: Slightly rounded corners.
+         - `rounded-lg`: Large rounding for corners.
+         - `rounded-full`: Fully rounded (circle for square elements).
+   - **Background Color**:
+     - Class: `bg-white`
+       - Sets the background color of the card to white, contrasting with the gradient background of the section.
+   - **Padding Inside the Card**:
+        - generally p-1
+       - Ensures there is space between the content (text and image) and the edges of the card, enhancing readability and aesthetics.
+
+---
+
+**How `relative` and `absolute` Work in This Code**:
+   - **Relative (Parent)**:
+     - Class: `relative`
+       - Positions the **parent element** as a reference point for its child elements that are `absolute`.
+       - Without the `relative` class, the `absolute` elements would position themselves relative to the nearest positioned ancestor or the document (body) by default.
+   - **Absolute (Children)**:
+     - Class: `absolute`
+       - Positions the child elements (cards) based on the **`relative` parent**.
+       - Used for precise placement of elements, e.g., `top-44`, `left-8`, etc.
+       - In this code:
+         - The **middle card** is placed with `top-44` relative to the parent.
+         - The **top card** and **bottom card** are adjusted with relative offsets like `left-8` or `top-10` for visual stacking.
+   - **Combined Effect**:
+     - The `relative` parent creates a **positioning context**.
+     - The `absolute` children stack or overlap within the boundaries of the parent, creating a visually layered effect.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tea House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/bbfc4be646.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-manrope">
+    <main class="max-w-screen-xl mx-auto mt-10 px-16 lg:px-28">
+
+        <!-- Reviews Section -->
+        <section class="mb-24">
+            <div
+                class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl grid grid-cols-1 lg:grid-cols-2 text-white px-7 md:px-16">
+                <!-- Text Section -->
+                <div class="flex justify-center items-center overflow-hidden">
+                    <div class="w-5/6">
+                        <h1 class="text-5xl font-bold mb-5 mt-10">
+                            Meet Our Super Clients
+                        </h1>
+                        <p class="mb-5">
+                            There are many variations of passages of Lorem Ipsum available,
+                            but the majority have suffered alteration in some form, by
+                            injected humour, or randomised words which don't look even
+                            slightly believable.
+                        </p>
+                        <button class="bg-white text-orange-700 px-3 py-2 rounded-lg">
+                            Show All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reviews Card Section -->
+                <div class="relative py-24">
+                    <!-- Middle Card -->
+                    <div class="absolute z-10 top-44 md:top-52">
+                        <div class="h-56 w-full md:w-3/4 bg-white text-black rounded-lg flex items-center px-5">
+                            <div class="absolute -top-5 -left-5 bg-white rounded-full">
+                                <img class="p-1" src="./images/client.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-5">
+                                    We are providing the best and suitable home insurance
+                                    services for the people who are interested to treatment
+                                </p>
+                                <h1 class="font-bold">Ilham Yuda</h1>
+                                <small class="font-bold text-gray-500">Businessman</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- top card -->
+                    <div
+                        class="relative left-8 md:left-32 h-56 w-full md:w-3/4 bg-white text-black rounded-lg flex items-center px-5 opacity-40">
+                        <div class="absolute -top-5 -left-5 bg-white rounded-full">
+                            <img class="p-1" src="./images/client.png" alt="" />
+                        </div>
+                        <div>
+                            <p class="text-gray-500 mb-5">
+                                We are providing the best and suitable home insurance services
+                                for the people who are interested to treatment
+                            </p>
+                            <h1 class="font-bold">Ilham Yuda</h1>
+                            <small class="font-bold text-gray-500">Businessman</small>
+                        </div>
+                    </div>
+
+                    <!-- bottom card -->
+                    <div
+                        class="relative left-8 md:left-32 top-10 h-56 w-full md:w-3/4 bg-white text-black rounded-lg flex items-center px-5 opacity-40">
+                        <div class="absolute -top-5 -left-5 bg-white rounded-full">
+                            <img class="p-1" src="./images/client.png" alt="" />
+                        </div>
+                        <div>
+                            <p class="text-gray-500 mb-5">
+                                We are providing the best and suitable home insurance services
+                                for the people who are interested to treatment
+                            </p>
+                            <h1 class="font-bold">Ilham Yuda</h1>
+                            <small class="font-bold text-gray-500">Businessman</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bg-yellow-300 max-w-10 rounded-full">
+            <p class="p-1 text-center">This</p>
+        </div>
+    </main>
+</body>
+
+</html>

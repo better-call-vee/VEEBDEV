@@ -1,0 +1,140 @@
+<!-- 
+Notes on the Code:
+
+1. **rotate Property**:
+   - Class: `-rotate-45`
+   - What it Does:
+     - Rotates the element c ounterclockwise by 45 degrees.
+     - Tailwind provides utility classes for rotating elements by specific degrees (e.g., `rotate-45`, `-rotate-45`, `rotate-90`, etc.).
+   - Usage Example:
+     ```html
+     <i class="fa-solid fa-arrow-right text-xl -rotate-45"></i>
+     ```
+   - Result: The arrow icon (`fa-arrow-right`) is rotated counterclockwise by 45 degrees.
+
+   **More Tailwind Rotate Classes**:
+   - Rotate Clockwise:
+     - `rotate-45`: Rotates the element 45 degrees clockwise.
+     - `rotate-90`: Rotates the element 90 degrees clockwise.
+   - Rotate Counterclockwise:
+     - `-rotate-45`: Rotates the element 45 degrees counterclockwise.
+     - `-rotate-90`: Rotates the element 90 degrees counterclockwise.
+   - Custom Rotation (in Tailwind configuration):
+     - You can add custom rotation values in the `tailwind.config.js` file under `extend`.
+
+---
+
+ Why does `absolute` make the width of the card shrunk and perfect?**
+
+   - When `absolute` is applied to an element, it:
+     1. Removes the element from the normal document flow (it no longer affects sibling elements).
+     2. Adjusts its size to fit **only the content inside it**, unless explicit width is defined (e.g., `w-full`, `w-1/2`).
+
+   - In your case:
+     - The card is **shrunk to fit its content (icon and text)** because no specific width is set for the card itself.
+     - The `absolute` class ensures the card is positioned precisely where you want it (controlled by `top-*` and `left-*` classes), without stretching unnecessarily.
+
+   **Key Behavior of `absolute`:**
+   - It uses the nearest **positioned ancestor** (an element with `relative`, `absolute`, or `fixed` positioning) as its reference point.
+   - If no positioned ancestor exists, it falls back to the `html` or `body` tag.
+
+---
+
+What does `relative` do for the parent class?**
+
+   - `relative` positions the element **relative to its original position in the document flow**.
+   - It is often used to establish a **positioning context** for child elements that are `absolute` or `fixed`.
+
+   - In your case:
+     - The `relative` class on the parent (`<div class="relative">`) sets a reference point for the `absolute` card inside it.
+     - Without `relative` on the parent, the `absolute` card would use the nearest ancestor with a positioning context or default to the `body`.
+
+   **Practical Importance:**
+   - Ensures the `absolute` element (the card) is **positioned relative to its parent**, rather than the whole document.
+
+---
+
+4. **Example Workflow:**
+   - Parent (`relative`):
+     ```html
+     <div class="relative">
+         <div class="absolute top-10 left-10">I am absolutely positioned relative to this parent.</div>
+     </div>
+     ```
+   - Without `relative`, the `absolute` child would be positioned relative to the `body`.
+
+---
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tea House</title>
+    <!-- Google font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <!-- Fontawesome cdn -->
+    <script src="https://kit.fontawesome.com/bbfc4be646.js" crossorigin="anonymous"></script>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="max-w-screen-xl mx-auto px-16 lg:px-28">
+        <!-- Header Section -->
+        <header class="lg:flex pt-10 mb-20">
+            <!-- Text content -->
+            <div>
+                <h1 class="text-5xl md:text-7xl">
+                    It's good <br />
+                    tea time at The <br />
+                    Tea House
+                </h1>
+                <br />
+                <p class="text-gray-500 w-3/4">
+                    Tea and Botanical Solutions Supplier Give Optimum Satisfaction To
+                    Your Taste Buds.
+                </p>
+                <br />
+                <button class="bg-gradient-to-r from-orange-500 to-red-500 px-5 py-3 rounded-lg text-white font-bold">
+                    Explore More
+                    <i class="fa-solid fa-arrow-right text-xl -rotate-45"></i>
+                </button>
+            </div>
+            <!-- Image Content -->
+            <div class="relative">
+                <!-- Image -->
+                <div>
+                    <img class="w-full" src="images/two.jpg" alt="" />
+                </div>
+                <!-- Card -->
+                <div
+                    class="absolute flex items-center bg-white shadow-lg px-2 py-2 md:px-10 lg:py-4 rounded-lg top-28 md:top-80 md:left-32 lg:left-28">
+                    <!-- icon
+                    Q: Why does absolute make the width of the card shrunk and perfect?? and what does relative do for the parent class?? 
+                    -->
+                    <div><i class="fa-solid fa-star text-2xl text-amber-500"></i></div>
+                    <!-- Text -->
+                    <div class="ml-2">
+                        <h2 class="lg:text-2xl font-bold">5.00</h2>
+                        <p class="text-gray-500">Trust Pilot Ratings</p>
+                    </div>
+                </div>
+            </div>
+        </header>
