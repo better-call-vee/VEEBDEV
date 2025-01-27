@@ -1,0 +1,41 @@
+<!--
+Dark Mode Solution:
+   - Add data-theme="light" to <html> tag
+   - DaisyUI follows system theme by default
+-->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAISYUI SETUP</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold">Now You Can See Me!</h1>
+    <button class="btn btn-primary">Fixed Button</button>
+
+    <div class="dropdown">
+        <div tabindex="0" role="button" class="btn m-1">Click</div>
+        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+    </div>
+
+</body>
+
+<!-- We can use more classes to customize 
+ like, in button class ="btn btn-primary bg-red-400" 
+ 
+ DaisyUI gives you ready-to-use components (like buttons, menus, modals) that automatically work without writing JavaScript. Need a dropdown that opens/closes? Or a theme switcher? Just add HTML classes – DaisyUI handles the interactive parts magically behind the scenes. It’s like getting JavaScript features for free! 
+
+ -->
+
+</html>

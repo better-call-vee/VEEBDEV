@@ -1,0 +1,62 @@
+<!-- 
+FLEX GROW DEEP EXPLANATION:
+
+Your Code: <div class="flex-1"> 
+This translates to CSS: flex: 1 1 0% 
+- flex-grow: 1 → Takes available space
+- flex-shrink: 1 → Can shrink if needed
+- flex-basis: 0% → Starts from zero width
+
+What if you use flex-2/flex-3?
+Tailwind DOESN'T have these by default. But in raw CSS:
+- flex-2 → flex: 2 1 0%
+- flex-3 → flex: 3 1 0%
+
+Key Concept:
+flex-grow values COMPARE to siblings:
+<div class="flex">
+  <div class="flex-1"> (1 part)
+  <div class="flex-2"> (2 parts) → Needs custom CSS
+  <div class="flex-1"> (1 part)
+</div>
+
+Total parts = 4 → 25% | 50% | 25% width distribution
+
+TAILWIND IMPLEMENTATION:
+To achieve flex-2 in Tailwind:
+1. Add custom class:
+@layer utilities {
+  .flex-2 {
+    flex: 2 1 0%;
+  }
+}
+2. Or use arbitrary value:
+<div class="flex-[2]">
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-grow</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <div class="flex gap-4 h-24 bg-gray-200 p-4">
+        <!-- Basic flex-1 -->
+        <div class="flex-1 bg-red-500">flex-1</div>
+
+        <!-- Custom flex-2 -->
+        <div class="flex-[2] bg-green-500">flex-2 (custom)</div>
+
+        <!-- flex-1 for comparison -->
+        <div class="flex-1 bg-blue-500">flex-1</div>
+    </div>
+
+</body>
+
+</html>
