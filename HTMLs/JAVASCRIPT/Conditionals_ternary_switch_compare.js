@@ -92,14 +92,14 @@ SWITCH STATEMENTS
 */
 
 // Example 7: WWE Championship Match Outcomes
-const title = "World Heavyweight";
+const title = "WWE Universal";
 
 switch (title) {
   case "WWE Universal":
-    console.log("Roman Reigns's 1000+ day reign");
+    console.log("Roman Reigns's 1000+ day reign"); // Output
     break;
   case "World Heavyweight":
-    console.log("Seth Rollins' Visionary Title"); // Output
+    console.log("Seth Rollins' Visionary Title"); 
     break;
   case "Intercontinental":
     console.log("Gunther's Record-breaking Reign");
