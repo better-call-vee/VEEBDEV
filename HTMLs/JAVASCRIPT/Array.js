@@ -90,4 +90,10 @@ console.log("Average Score:", average); // Output: 90
 3. Use `indexOf()` for finding elements, but prefer `includes()` for simple existence checks
 4. Arrays are 0-indexed and can store any data type
 5. `Array.isArray()` is the best way to check if something is an array
+
+
+Array is considered as an object in JS
+isArray to check an array
 */
+
+
