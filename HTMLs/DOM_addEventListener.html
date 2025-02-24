@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: AddEventListener</title>
+    <style>
+        /* SIMPLE STYLING FOR VISIBILITY */
+        .container {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BUTTONS AND OUTPUT AREA -->
+    <div class="container">
+        <h2>Understanding AddEventListener</h2>
+        <button id="btn-click">Click Me!</button>
+        <button id="btn-hover">Hover Over Me!</button>
+        <p id="output">Event details will appear here.</p>
+    </div>
+
+    <script>
+        // SELECT ELEMENTS
+        const btnClick = document.getElementById('btn-click');
+        const btnHover = document.getElementById('btn-hover');
+        const output = document.getElementById('output');
+
+        // FUNCTION TO UPDATE OUTPUT TEXT
+        function updateOutput(message) {
+            output.innerText = message;
+        }
+
+        // ADD EVENT LISTENERS
+        btnClick.addEventListener('click', () => {
+            updateOutput('Button was clicked!');
+            document.body.style.backgroundColor = '#8ce4ff'
+        });
+
+        btnHover.addEventListener('mouseover', () => {
+            updateOutput('Mouse is over the button!');
+            document.body.style.backgroundColor = '#eaaaff'
+        });
+
+        btnHover.addEventListener('mouseout', () => {
+            updateOutput('Mouse left the button!');
+            document.body.style.backgroundColor = '#ffffff'
+        });
+
+        /*
+        1. What is AddEventListener?
+           - The `addEventListener()` method attaches an event listener to a specific element
+            <button class="citation-flag" data-index="2">.
+           - It allows you to listen for events like clicks, mouse movements, or keyboard
+           actions and execute code in response.
+
+        2. Syntax:
+           - element.addEventListener(eventType, callbackFunction);
+           - Example: btnClick.addEventListener('click', () => { ... });
+
+        3. Advantages of Using AddEventListener:
+           - Multiple Listeners: You can attach multiple listeners to the same element for different
+           events 
+           - Separation of Concerns: Keeps JavaScript logic separate from HTML, improving maintainability
+           - Flexibility: Supports anonymous functions, named functions, and arrow functions.
+
+        4. Best Practice:
+           - Use Named Functions for Reusability: Named functions are easier to reuse and debug compared to
+           inline or anonymous functions 
+           - Avoid Inline Event Handlers: Inline handlers (e.g., `onclick`) mix HTML and JavaScript, making
+           the code harder to maintain 
+        */
+    </script>
+</body>
+
+</html>

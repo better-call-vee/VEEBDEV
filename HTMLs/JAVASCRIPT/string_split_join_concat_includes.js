@@ -3,7 +3,7 @@ It breaks the string into parts and returns an array of those parts.
 If no separator is provided, it will return an array with the whole string as the only element. */
 
 // Example: Split by space
-const sentence = "Hello World";
+const sentence = "Hello World Pasa";
 const words = sentence.split(" "); // Split by space
 console.log(words); // Output: ["Hello", "World"]
 

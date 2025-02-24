@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: NodeList, HTMLCollection, ParentNode, ChildNodes, CreateElement</title>
+    <style>
+        /* STYLING FOR DEMONSTRATION */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: lightgray;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- PARENT AND CHILD NODES DEMONSTRATION -->
+    <ul id="parent-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="access-nodes-btn">Access Nodes</button>
+    <button id="add-item-btn">Add New Item</button>
+    <script>
+        // ACCESSING NODES
+        document.getElementById('access-nodes-btn').addEventListener('click', () => {
+            const parentList = document.getElementById('parent-list');
+
+            // NodeLists and HTMLCollections
+            console.log('Child Nodes:', parentList.childNodes); // Logs all child nodes (including text nodes)
+            console.log('Children:', parentList.children); // Logs only element nodes (HTMLCollection)
+
+            // Accessing Specific Child Nodes
+            const secondChild = parentList.childNodes[3]; // Accesses the second <li> (index 3 due to text nodes)
+            console.log('Second Child Node:', secondChild);
+
+            // Accessing Nested Child Nodes
+            if (secondChild) {
+                console.log('Nested Child Nodes:', secondChild.childNodes); // Logs child nodes of the second <li>
+            }
+
+            // Sibling Nodes
+            const firstChild = parentList.children[0];
+            const nextSibling = firstChild.nextElementSibling; // Accesses the next sibling element
+            console.log('Next Sibling:', nextSibling);
+            /*
+            - .childNodes: Returns a NodeList of all child nodes, including text nodes.
+            - .children: Returns an HTMLCollection of only element nodes.
+            - .childNodes[index]: Accesses a specific child node by index.
+            - .nextElementSibling: Accesses the next sibling element.
+            */
+        });
+
+        // CREATING AND APPENDING ELEMENTS
+        document.getElementById('add-item-btn').addEventListener('click', () => {
+            const parentList = document.getElementById('parent-list');
+
+            // createElement()
+            const newItem = document.createElement('li'); // Creates a new <li> element
+            newItem.innerText = 'New Item'; // Sets the text content of the new <li>
+
+            // appendChild()
+            parentList.appendChild(newItem); // Appends the new <li> to the parent <ul>
+            /*
+            - createElement('tag_name'): Creates a new HTML element.
+            - element.innerText = 'text': Sets the text content of the element.
+            - parent.appendChild(child): Appends the child element to the parent element.
+            */
+        });
+    </script>
+    <script>
+        /*
+        1. NodeList vs HTMLCollection:
+           - NodeList: Returned by methods like `childNodes`. Includes all types of nodes (e.g., text nodes, element nodes).
+           - HTMLCollection: Returned by methods like `children`. Includes only element nodes.
+
+        2. Accessing Child Nodes:
+           - .childNodes: Returns all child nodes, including text nodes.
+           - .children: Returns only element nodes.
+           - .childNodes[index]: Accesses a specific child node by index.
+           - Example:
+             const secondChild = parentList.childNodes[3];
+
+        3. Accessing Nested Child Nodes:
+           - Use `.childNodes` or `.children` on a specific child node to access its nested children.
+           - Example:
+             const nestedChild = secondChild.childNodes;
+
+        4. Sibling Nodes:
+           - .nextElementSibling: Accesses the next sibling element.
+           - Example:
+             const nextSibling = firstChild.nextElementSibling;
+
+        5. Creating and Appending Elements:
+           - createElement('tag_name'): Creates a new HTML element.
+           - element.innerText = 'text': Sets the text content of the element.
+           - parent.appendChild(child): Appends the child element to the parent element.
+           - Example:
+             const newItem = document.createElement('li');
+             newItem.innerText = 'New Item';
+             parentList.appendChild(newItem);
+        */
+    </script>
+</body>
+</html>

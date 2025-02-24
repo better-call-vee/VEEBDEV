@@ -38,15 +38,14 @@ console.log(`Random Entrance Theme Volume: ${randomVolume}`); // Output: Random 
 // Example 6: Combining Methods for Realistic Scenarios
 // Scenario: Simulate a random wrestler's finishing move damage (1 to 100).
 function generateFinishingMoveDamage() {
-    const minDamage = 50; // Minimum damage guaranteed
-    const maxDamage = 100; // Maximum possible damage
-    return Math.floor(Math.random() * (maxDamage - minDamage + 1)) + minDamage;
+   const minDamage = 50; // Minimum damage guaranteed
+   const maxDamage = 100; // Maximum possible damage
+   return Math.floor(Math.random() * (maxDamage - minDamage + 1)) + minDamage;
 }
 const finishingMoveDamage = generateFinishingMoveDamage();
 console.log(`Finishing Move Damage: ${finishingMoveDamage}`); // Output: Random value between 50 and 100
 
 /*
-KEY MATH METHODS EXPLAINED
    - Math.abs(x): Returns the absolute value of x (removes negative sign).
    - Math.round(x): Rounds x to the nearest integer.
    - Math.ceil(x): Rounds x up to the next largest integer.
@@ -54,11 +53,44 @@ KEY MATH METHODS EXPLAINED
    - Math.random(): Generates a random floating-point number between 0 (inclusive) and 1 (exclusive).
 */
 
+
 /*
-WWE USE CASE SUMMARY
-   - Use Math.abs for differences (e.g., title counts, ratings).
-   - Use Math.round for rounding crowd ratings or scores.
-   - Use Math.ceil for resource allocation (e.g., tables, chairs).
-   - Use Math.floor for truncating time or resources.
-   - Use Math.random for simulations (e.g., damage, crowd reactions).
+MATH.MIN & MATH.MAX
+   - Math.min(...values): Returns the smallest value among given numbers
+   - Math.max(...values): Returns the largest value among given numbers
+   - Works with multiple arguments or arrays using spread operator (...)
+   - Non-numeric values return NaN
 */
+
+// Example 1: Basic usage with multiple numbers
+console.log(Math.min(3, 7, -5, 0, 12)); // Output: -5
+console.log(Math.max(3, 7, -5, 0, 12)); // Output: 12
+
+// Example 2: Using variables
+const score1 = 45, score2 = 89, score3 = 23;
+console.log(Math.min(score1, score2, score3)); // Output: 23
+console.log(Math.max(score1, score2, score3)); // Output: 89
+
+// Example 3: With an array using spread operator
+const temperatures = [32, 15, 28, -5, 40];
+console.log(Math.min(...temperatures)); // Output: -5
+console.log(Math.max(...temperatures)); // Output: 40
+
+// Example 4: Mixed positive and negative numbers
+console.log(Math.min(-10, 0, 5, -20, 15)); // Output: -20
+console.log(Math.max(-10, 0, 5, -20, 15)); // Output: 15
+
+// Example 5: Handling non-numeric values
+console.log(Math.min(5, "hello", 10)); // Output: NaN
+console.log(Math.max(5, "hello", 10)); // Output: NaN
+
+// Example 6: Edge cases with no arguments
+console.log(Math.min()); // Output: Infinity
+console.log(Math.max()); // Output: -Infinity
+
+// Example 7: Real-world scenario - Finding best price
+const prices = [1200, 999, 1500, 799, 1300];
+const lowestPrice = Math.min(...prices);
+const highestPrice = Math.max(...prices);
+console.log(`Lowest Price: ${lowestPrice}, Highest Price: ${highestPrice}`);
+// Output: Lowest Price: 799, Highest Price: 1500

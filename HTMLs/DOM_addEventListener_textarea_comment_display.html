@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: Create and Display Comments</title>
+    <style>
+        /* STYLING FOR THE COMMENT BOX AND LIST */
+        .container {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .comment-list {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+            font-size: 16px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER WITH COMMENT BOX AND LIST -->
+    <div class="container">
+        <h2>Create and Display Comments</h2>
+        <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
+        <button id="post-btn">Post Comment</button>
+        <div class="comment-list" id="comment-container">
+            <!-- COMMENTS WILL BE APPENDED HERE -->
+            <!-- INITIAL COMMENTS -->
+            <p class="comment">"Main Event Jey Uso went from being a tag team warrior to straight-up stealing the show
+                every night like it's his birthright. The man throws superkicks like confetti, yeets through challengers
+                like a runaway freight train, and somehow makes getting betrayed by family look like the ultimate
+                glow-up. With that electrifying energy and a crowd that YEETS louder than a stadium full of soccer fans,
+                Jey isn't just in the main event—he is the main event. Whether he's throwing hands or throwing vibes,
+                one thing's for sure: Jey Uso stays undefeated in the art of making WWE must-watch. YEEEEET!"</p>
+            <p class="comment">"Jey Uso is the definition of perseverance and charisma combined. His journey from tag
+                team specialist to main event star is nothing short of inspiring."</p>
+        </div>
+    </div>
+
+    <script>
+        // SELECT ELEMENTS
+        const commentInput = document.getElementById('comment-input');
+        const postBtn = document.getElementById('post-btn');
+        const commentContainer = document.getElementById('comment-container');
+
+        // ADD EVENT LISTENER TO POST BUTTON
+        postBtn.addEventListener('click', () => {
+            const inputValue = commentInput.value.trim(); // Get and trim the input value
+
+            if (inputValue) {
+                // CREATE A NEW PARAGRAPH ELEMENT
+                const newComment = document.createElement('p');
+                newComment.innerText = inputValue; // Set the innerText to the input value
+
+                // ADD CLASS TO THE NEW COMMENT
+                newComment.classList.add('comment');
+
+                // APPEND THE NEW COMMENT TO THE CONTAINER
+                commentContainer.appendChild(newComment);
+
+                // CLEAR THE TEXTAREA AFTER POSTING
+                commentInput.value = ''; // Reset the textarea after posting
+            } else {
+                alert('Please enter a valid comment!');
+            }
+        });
+
+        /*
+        1. How It Works:
+           - The user types a comment in the `textarea` and clicks the "Post Comment" button.
+           - The input value is retrieved using `.value` and trimmed to remove extra spaces .
+           - A new `<p>` element is created using `document.createElement('p')`
+           - The input value is set as the `innerText` of the new paragraph.
+           - The paragraph is added to the `comment-container` using `appendChild()`  
+           - The new comment is styled by adding the `comment` class using `classList.add()`.
+
+        2. Key Concepts:
+           - `textarea`: Used for multi-line text input with attributes like `rows` and `cols`.
+           - `.value`: Retrieves the current value of an input or textarea element.
+           - `document.createElement()`: Dynamically creates a new HTML element .
+           - `appendChild()`: Adds a newly created element as a child to a parent element  
+           - `classList.add()`: Adds a CSS class to an element for styling purposes.
+
+        3. Why Use This Approach?
+           - Dynamic Updates: Comments are added without reloading the page, providing a seamless experience.
+           - Reusability: The same logic can be reused for other dynamic content updates.
+           - Input Validation: Ensures only meaningful comments are posted by trimming whitespace and checking for empty inputs.
+
+        4. Clearing Input:
+           - After posting, the textarea is cleared by setting its value to an empty string (`''`) 
+        */
+    </script>
+</body>
+
+</html>

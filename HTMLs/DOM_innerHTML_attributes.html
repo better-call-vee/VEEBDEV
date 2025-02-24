@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: Dynamic Style and Attributes</title>
+    <style>
+        /* STYLING FOR DEMONSTRATION */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BOX ELEMENT FOR STYLE AND ATTRIBUTE MANIPULATION -->
+    <div class="box" id="dynamic-box">Box</div>
+    <button id="change-style-btn">Change Styles</button>
+    <button id="toggle-class-btn">Toggle Class</button>
+    <button id="set-attribute-btn">Set Attribute</button>
+    <script>
+        // DYNAMIC STYLE MANIPULATION
+        const box = document.getElementById('dynamic-box');
+
+        // SETTING INLINE STYLES IN JS (USE CAMEL CASE)
+        document.getElementById('change-style-btn').addEventListener('click', () => {
+            box.style.color = 'white'; // Changes text color to white
+            box.style.backgroundColor = 'darkblue'; // Changes background color to dark blue
+            /*
+            - In JavaScript, use camelCase for CSS properties.
+            - Example: `background-color` in CSS becomes `backgroundColor` in JS.
+            */
+        });
+
+        // CLASSLIST: ADD, REMOVE, TOGGLE
+        document.getElementById('toggle-class-btn').addEventListener('click', () => {
+            box.classList.toggle('highlight'); // Toggles the 'highlight' class
+            /*
+            - classList.add('class_name'): Adds a class to the element.
+            - classList.remove('class_name'): Removes a class from the element.
+            - classList.toggle('class_name'): Adds the class if not present, removes it if already present.
+            */
+        });
+
+        // GETATTRIBUTE AND SETATTRIBUTE
+        document.getElementById('set-attribute-btn').addEventListener('click', () => {
+            const currentId = box.getAttribute('id'); // Retrieves the value of the 'id' attribute
+            console.log('Current ID:', currentId); // Logs 'dynamic-box'
+            box.setAttribute('title', 'This is a dynamic box'); // Sets a new 'title' attribute
+            /*
+            - getAttribute('attribute_name'): Retrieves the value of an attribute.
+            - setAttribute('attribute_name', 'value'): Sets or updates an attribute with a specific value.
+            */
+        });
+
+        // INNERHTML VS INNERTEXT
+        const updateContent = () => {
+            box.innerHTML = '<strong>New Content</strong>'; // Sets HTML content inside the element
+            console.log(box.innerText); // Logs only the visible text ('New Content')
+            /*
+            - innerHTML: Gets or sets the HTML content inside an element.
+              - Use carefully to avoid XSS attacks when setting dynamic content.
+            - innerText: Gets or sets the visible text inside an element.
+              - Automatically escapes HTML tags and shows plain text.
+            */
+        };
+    </script>
+    <script>
+        /*
+        1. Dynamic Style:
+           - Use `element.style.property` to modify inline styles dynamically.
+           - Always use camelCase for CSS properties in JavaScript (e.g., `backgroundColor` instead of `background-color`).
+
+        2. classList:
+           - Provides methods to manipulate classes of an element.
+           - Methods:
+             - add('class_name'): Adds a class.
+             - remove('class_name'): Removes a class.
+             - toggle('class_name'): Adds the class if absent, removes it if present.
+
+        3. getAttribute and setAttribute:
+           - getAttribute('attribute_name'): Retrieves the value of an attribute.
+           - setAttribute('attribute_name', 'value'): Sets or updates an attribute with a specific value.
+
+        4. innerHTML:
+           - Allows you to get or set the HTML content of an element.
+           - Example: `element.innerHTML = '<p>New HTML</p>'`.
+
+        5. innerText:
+           - Gets or sets the visible text content of an element.
+           - Automatically escapes HTML tags and renders plain text.
+        */
+    </script>
+</body>
+
+</html>

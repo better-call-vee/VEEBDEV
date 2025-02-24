@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Delegation & Bubbling Demo: Remove Boxes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #info {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        #container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px dashed #333;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            padding: 20px;
+            margin: 10px;
+            background: lightblue;
+            border: 2px solid blue;
+            cursor: pointer;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Delegation & Bubbling Demo</h1>
+    <p id="info">
+        Click any box to remove it. The click event is handled by the parent container using event delegation.
+        This means that even newly added boxes will be removable!
+    </p>
+    <button id="addBox">Add New Box</button>
+
+    <!-- Parent container holding the boxes -->
+    <div id="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
+
+    <script>
+        // Get references to the container and the add box button
+        const container = document.getElementById('container');
+        const addBoxBtn = document.getElementById('addBox');
+        let boxCount = 5; // initial number of boxes
+
+        /* 
+          EVENT DELEGATION EXPLAINED:
+          
+          - Instead of adding a click event to each box, we add a single click listener to the container.
+          - When a box is clicked, the event bubbles (propagates) up to the container.
+          - Inside the container’s event handler, we use `event.target` to determine the exact element that was clicked.
+          - If the clicked element has the class 'box', we remove it using:
+              event.target.parentNode.removeChild(event.target);
+          
+          BENEFITS:
+          - Fewer event listeners (better performance).
+          - Handles both existing and future (dynamically added) elements.
+        */
+
+        // Attach an event listener to the parent container using event delegation.
+        container.addEventListener('click', (event) => {
+            // Check if the clicked element has the 'box' class.
+            if (event.target && event.target.classList.contains('box')) {
+                // Remove the clicked box from its parent.
+                event.target.parentNode.removeChild(event.target);
+            }
+        });
+
+        // Dynamically add a new box when the "Add New Box" button is clicked.
+        addBoxBtn.addEventListener('click', () => {
+            boxCount++;
+            const newBox = document.createElement('div');
+            newBox.classList.add('box');
+            newBox.innerText = 'Box ' + boxCount + ' YEET';
+            // Append the new box to the container.
+            container.appendChild(newBox);
+        });
+    </script>
+</body>
+
+</html>

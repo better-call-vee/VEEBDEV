@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: QuerySelector vs QuerySelectorAll</title>
+    <style>
+        /* STYLING FOR THE DOM ELEMENTS */
+        .container {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .list-item {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER WITH CLASS AND NESTED LIST -->
+    <div class="container">
+        <h2>QuerySelector Example</h2>
+        <ul class="query-list">
+            <li class="list-item">Item 1</li>
+            <li class="list-item">Item 2</li>
+            <li class="list-item">Item 3</li>
+        </ul>
+    </div>
+
+    <!-- MULTIPLE CONTAINERS WITH SAME CLASS -->
+    <div class="container">
+        <h2>QuerySelectorAll Example</h2>
+        <ul class="query-list">
+            <li class="list-item">Nested Item A</li>
+            <li class="list-item">Nested Item B</li>
+        </ul>
+    </div>
+
+    <!-- BUTTON TO TRIGGER CHANGES -->
+    <button id="change-btn">Change Content</button>
+
+    <script>
+        // QUERYSELECTOR VS QUERYSELECTORALL
+        const changeBtn = document.getElementById('change-btn');
+
+        changeBtn.addEventListener('click', () => {
+            // USING QUERYSELECTOR (RETURNS SINGLE ELEMENT)
+            const firstListItem = document.querySelector('.query-list .list-item'); // Selects the first matching element
+            firstListItem.innerText = 'Porer jayga porer jomin, ghor banaya ami roi'; // Update text of the first <li>
+
+            // USING QUERYSELECTORALL (RETURNS NODELIST)
+            const allListItems = document.querySelectorAll('.query-list .list-item'); // Selects all matching elements
+
+            // ITERATE THROUGH NODELIST USING FOR-OF LOOP
+            for (const item of allListItems) {
+                item.style.backgroundColor = '#ffcccb'; // Change background color
+            }
+
+            // DIFFERENCE BETWEEN HTMLCOLLECTION AND NODELIST
+            console.log('HTMLCollection Example:');
+            const htmlCollection = document.getElementsByClassName('list-item'); // Returns live HTMLCollection
+            console.log(htmlCollection); // Logs live collection (updates dynamically)
+
+            console.log('NodeList Example:');
+            const nodeList = document.querySelectorAll('.list-item'); // Returns static NodeList
+            console.log(nodeList); // Logs static collection (does not update dynamically)
+        });
+    </script>
+
+    <script>
+        /*
+        1. querySelector:
+           - Syntax: document.querySelector('CSS_SELECTOR');
+           - Returns: The FIRST matching element in the DOM.
+           - Use Case: When you need to target a single specific element.
+           - Example: document.querySelector('.query-list .list-item') selects the first <li> inside any <ul> with class "query-list".
+
+        2. querySelectorAll:
+           - Syntax: document.querySelectorAll('CSS_SELECTOR');
+           - Returns: A STATIC NodeList containing ALL matching elements.
+           - Use Case: When you need to target multiple elements at once.
+           - Example: document.querySelectorAll('.query-list .list-item') selects ALL <li> elements inside any <ul> with class "query-list".
+
+        3. HTMLCollection vs NodeList:
+           - HTMLCollection:
+             - Returned by methods like getElementsByClassName, getElementsByTagName.
+             - LIVE: Automatically updates when the DOM changes.
+             - Example: If you add or remove elements, the HTMLCollection reflects those changes immediately.
+           - NodeList:
+             - Returned by querySelectorAll.
+             - STATIC: Does NOT update when the DOM changes.
+             - Example: Even if you add new elements, the NodeList remains unchanged unless re-queried.
+
+        4. CSS Selectors in JavaScript:
+           - You can use any valid CSS selector with querySelector and querySelectorAll.
+           - Examples:
+             - '.class_name li' selects all <li> inside elements with class "class_name".
+             - '#id_name' selects the element with the specified ID.
+             - 'div.container' selects all <div> elements with class "container".
+
+        5. Iterating Through Elements:
+           - Use a `for-of` loop to traverse through a NodeList or HTMLCollection.
+           - Example:
+             for (const item of nodeList) {
+                 item.style.backgroundColor = 'red';
+             }
+        */
+    </script>
+</body>
+
+</html>

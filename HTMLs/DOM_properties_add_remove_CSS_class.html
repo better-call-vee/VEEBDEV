@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: DOM Properties and Class Manipulation</title>
+    <style>
+        /* STYLING FOR DEMONSTRATION */
+        section {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .highlight {
+            border: 2px solid steelblue;
+            background-color: lightyellow;
+        }
+
+        .glow {
+            border: 4px solid #ff6f61;
+            /* Intense glowing border */
+            box-shadow: 0 0 20px #ff6f61, 0 0 40px #ff6f61;
+            /* Glowing effect */
+            background-color: #fff3f3;
+            /* Light background for contrast */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MULTIPLE SECTIONS FOR DEMONSTRATION -->
+    <section>Section 1</section>
+    <section>Section 2</section>
+    <section>Section 3</section>
+    <button id="style-btn">Apply Styles</button>
+    <button id="add-glow-btn">Add Glow Class</button>
+    <button id="remove-glow-btn">Remove Glow Class</button>
+    <script>
+        // QUERYSELECTORALL TO SELECT ALL SECTIONS
+        const sections = document.querySelectorAll('section');
+
+        // APPLY STYLES USING FOR...OF LOOP
+        document.getElementById('style-btn').addEventListener('click', () => {
+            for (const section of sections) {
+                section.style.border = '2px solid steelblue'; // Adds a border to each section
+                section.style.backgroundColor = 'lightblue'; // Changes background color
+                section.style.color = 'white'; // Changes text color
+            }
+            /*
+            - querySelectorAll('section'): Selects all <section> elements and returns a NodeList.
+            - Use `for...of` to iterate through the NodeList and apply styles dynamically.
+            */
+        });
+
+        // ADD GLOW CLASS USING classList.add
+        document.getElementById('add-glow-btn').addEventListener('click', () => {
+            for (const section of sections) {
+                section.classList.add('glow'); // Adds the 'glow' class to each section
+            }
+            /*
+            - classList.add('class_name'): Adds a CSS class to the element.
+            - Example: Adds the 'glow' class defined in CSS to style the sections.
+            */
+        });
+
+        // REMOVE GLOW CLASS USING classList.remove
+        document.getElementById('remove-glow-btn').addEventListener('click', () => {
+            for (const section of sections) {
+                section.classList.remove('glow'); // Removes the 'glow' class from each section
+            }
+            /*
+            - classList.remove('class_name'): Removes a CSS class from the element.
+            - Example: Removes the 'glow' class if it exists.
+            */
+        });
+    </script>
+    <script>
+        /*
+        1. DOM Properties:
+           - Use `querySelectorAll('selector')` to select multiple elements and return a NodeList.
+           - Example: `document.querySelectorAll('section')` selects all <section> elements.
+
+        2. Styling with JavaScript:
+           - Use `element.style.property` to set inline styles dynamically.
+           - Example: `section.style.border = '2px solid steelblue'`.
+
+        3. Iterating Through NodeList:
+           - Use `for...of` to loop through a NodeList returned by `querySelectorAll`.
+           - Example:
+             for (const section of sections) {
+                 section.style.backgroundColor = 'lightblue';
+             }
+
+        4. Adding and Removing Classes:
+           - classList.add('class_name'): Adds a CSS class to an element.
+           - classList.remove('class_name'): Removes a CSS class from the element.
+           - Example:
+             section.classList.add('glow');
+             section.classList.remove('glow');
+
+        5. Glow Effect:
+           - Used `box-shadow` with multiple layers to create a glowing effect:
+             - `box-shadow: 0 0 20px #ff6f61, 0 0 40px #ff6f61;`
+             - Added a bright border (`border: 4px solid #ff6f61`) for emphasis.
+             - Changed background color to make the glow stand out.
+        */
+    </script>
+</body>
+
+</html>

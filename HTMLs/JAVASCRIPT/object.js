@@ -22,6 +22,7 @@ const reigns = {
 // Dot Notation (common case)
 console.log(reigns.name); // "Roman Reigns"
 console.log(reigns.daysHeld); // 1000+
+console.log(Object.keys(reigns).length); // 3
 
 // Bracket Notation (special cases)
 console.log(reigns["fav entrance"]); // NEEDED FOR SPACES/SPECIAL CHARACTERS

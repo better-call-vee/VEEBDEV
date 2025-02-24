@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: Mouse and Keyboard Events</title>
+    <style>
+        /* SIMPLE STYLING FOR VISIBILITY */
+        .container {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        #output {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER WITH INPUT AND BUTTON -->
+    <div class="container">
+        <h2>Mouse and Keyboard Events</h2>
+        <p id="output">Mouse and Keyboard Event Details</p>
+        <input type="text" id="input-field" placeholder="Type 'delete' to enable the button...">
+        <button id="delete-btn" disabled>Delete Repository</button>
+    </div>
+
+    <script>
+        // SELECT ELEMENTS
+        const output = document.getElementById('output');
+        const inputField = document.getElementById('input-field');
+        const deleteBtn = document.getElementById('delete-btn');
+
+        // MOUSE EVENTS
+        deleteBtn.addEventListener('mouseenter', (event) => {
+            output.innerText = `Mouse entered the ${event.target.tagName} element.`;
+            output.style.backgroundColor = 'yellow';
+        });
+
+        deleteBtn.addEventListener('mousemove', (event) => {
+            output.innerText = `Mouse moved over the ${event.target.tagName} element.`;
+        });
+
+        deleteBtn.addEventListener('mouseout', (event) => {
+            output.innerText = `Mouse left the ${event.target.tagName} element.`;
+            output.style.backgroundColor = 'white';
+        });
+
+        // KEYBOARD EVENTS
+        inputField.addEventListener('keydown', (event) => {
+            output.innerText = `Key pressed: ${event.key}`;
+        });
+
+        inputField.addEventListener('keyup', (event) => {
+            output.innerText = `Key released: ${event.key}`;
+        });
+
+        // FOCUS AND BLUR EVENTS
+        inputField.addEventListener('focus', () => {
+            output.innerText = 'Input field is focused.';
+        });
+
+        inputField.addEventListener('blur', () => {
+            output.innerText = 'Input field lost focus.';
+        });
+
+        // ENABLE/DISABLE DELETE BUTTON BASED ON INPUT VALUE
+        inputField.addEventListener('input', (event) => {
+            /*
+            How This Syntax Works:
+            - `inputField.addEventListener('input', (event) => { ... })` listens for the `input` event on the input field.
+            - The `input` event fires whenever the value of the input changes, including typing, pasting, or deleting text.
+            - The `event` object contains information about the event, such as the target element (`event.target`) and its current value (`event.target.value`).
+            - In this case, we use `event.target.value` to get the current value of the input field, trim it to remove extra spaces, and check if it matches the word "delete".
+            - If the value matches "delete", the delete button is enabled by removing the `disabled` attribute. Otherwise, the button remains disabled.
+            */
+            const inputValue = event.target.value.trim();
+
+            if (inputValue === 'delete') {
+                deleteBtn.removeAttribute('disabled');
+            } else {
+                deleteBtn.setAttribute('disabled', true);
+            }
+        });
+    </script>
+
+    <script>
+        /*
+        1. Mouse Events:
+           - `mouseenter`: Triggered when the mouse enters an element. It does not bubble up the DOM tree 
+           - `mousemove`: Triggered continuously while the mouse moves over an element 
+           - `mouseout`: Triggered when the mouse leaves an element 
+
+        2. Keyboard Events:
+           - `keydown`: Triggered when a key is pressed down. Useful for capturing user input in real-time 
+           - `keyup`: Triggered when a key is released. Often used to finalize actions after typing 
+
+        3. Focus and Blur Events:
+           - `focus`: Triggered when an element gains focus, such as clicking on an input field or tabbing into it 
+           - `blur`: Triggered when an element loses focus, such as clicking outside the input field or tabbing away 
+
+        4. Input Event:
+           - The `input` event is fired whenever the value of an input, textarea, or select element changes. This includes typing, pasting, or deleting text
+           - Unlike `change`, which only triggers after the input loses focus, `input` triggers immediately as the value changes.
+
+        5. GitHub Delete Button Logic:
+           - The delete button is initially disabled to prevent accidental deletions.
+           - The `input` event checks the value of the input field dynamically.
+           - If the user types "delete", the button is enabled using `removeAttribute('disabled')`.
+           - If the input value changes to anything other than "delete", the button is disabled again using `setAttribute('disabled', true)`.
+
+        6. Key Concepts:
+           - `event.target`: Refers to the element that triggered the event. For example, `event.target.value` retrieves the current value of the input field 
+           - `removeAttribute()`: Removes a specified attribute from an element, such as enabling a button by removing the `disabled` attribute 
+           - `setAttribute()`: Adds or modifies an attribute on an element, such as disabling a button by setting the `disabled` attribute 
+        */
+    </script>
+</body>
+
+</html>

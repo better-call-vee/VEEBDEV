@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: Event InnerText Update</title>
+    <style>
+        /* SIMPLE STYLING FOR VISIBILITY */
+        .container {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #007bff;
+            font-style: italic;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER WITH FORM AND OUTPUT -->
+    <div class="container">
+        <h2>Update Text with Event Handlers</h2>
+        <p id="output">Nothing</p>
+        <form id="text-form">
+            <input type="text" id="user-input" placeholder="Say your line...">
+            <button type="button" id="enter-btn">Enter</button>
+        </form>
+    </div>
+
+    <script>
+        // SELECT ELEMENTS
+        const userInput = document.getElementById('user-input');
+        const output = document.getElementById('output');
+        const enterBtn = document.getElementById('enter-btn');
+
+        // ADD EVENT LISTENER TO BUTTON
+        enterBtn.addEventListener('click', () => {
+            const inputValue = userInput.value.trim(); // Get and trim the input value
+            if (inputValue) {
+                output.innerText = `"${inputValue}"`; // Update the paragraph text
+                output.style.color = '#007bff'; // Apply stylish appearance
+            } else {
+                output.innerText = 'Nothing'; // Reset to default if input is empty
+                output.style.color = '#333';
+            }
+        });
+
+        /*
+        1. How It Works:
+           - Initially, the paragraph displays "Nothing".
+           - When the user enters text in the input field and clicks the "Enter" button, the paragraph updates
+            with the entered text 
+           - If the input is empty, the paragraph resets to "Nothing".
+
+        2. Key Concepts:
+           - `innerText`: Used to get or set the visible text content of an element 
+           - `trim()`: Removes whitespace from both ends of a string to avoid empty inputs
+           - Styling: The updated text is styled dynamically using inline styles for better visibility.
+
+        3. Why Use Event Handlers?
+           - Event handlers like `addEventListener` allow dynamic interaction between user input and the webpage <button class="citation-flag" data-index="2">.
+           - This approach avoids reloading the page, providing a seamless user experience.
+        */
+    </script>
+</body>
+
+</html>

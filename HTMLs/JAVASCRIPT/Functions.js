@@ -138,3 +138,7 @@ function functionName(parameter1, parameter2) {
   const counter = createCounter();
   console.log(counter()); // Output: 1
   console.log(counter()); // Output: 2
+
+
+
+  

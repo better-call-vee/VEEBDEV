@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: GetElementsByClassName vs GetElementById</title>
+    <style>
+        /* STYLING FOR THE DOM ELEMENTS */
+        .section {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        #unique-section {
+            background-color: #f4f4f4;
+        }
+
+        .multiple-sections {
+            background-color: #e6ffe6;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SECTION WITH ID -->
+    <div id="unique-section" class="section">
+        <h2>Unique Section (ID)</h2>
+        <ul id="unique-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+    </div>
+
+    <!-- SECTIONS WITH CLASS -->
+    <div class="multiple-sections section">
+        <h2>Multiple Section 1 (Class)</h2>
+        <ul class="common-list">
+            <li>Item A</li>
+            <li>Item B</li>
+        </ul>
+    </div>
+    <div class="multiple-sections section">
+        <h2>Multiple Section 2 (Class)</h2>
+        <ul class="common-list">
+            <li>Item X</li>
+            <li>Item Y</li>
+        </ul>
+    </div>
+
+    <!-- BUTTON TO TRIGGER CHANGES -->
+    <button id="change-btn">Change Content</button>
+
+    <script>
+        // GETELEMENTBYID VS GETELEMENTSBYCLASSNAME
+        const changeBtn = document.getElementById('change-btn'); // Select by ID
+
+        // CHANGE CONTENT USING INNERTEXT AND FOR-OF LOOP
+        changeBtn.addEventListener('click', () => {
+            // USING GETELEMENTBYID (RETURNS SINGLE ELEMENT)
+            const uniqueSection = document.getElementById('unique-section');
+            const uniqueList = document.getElementById('unique-list');
+            uniqueSection.style.backgroundColor = '#ffcccb'; // Change background
+            uniqueList.innerText = 'The last time is now!'; // Replace all <li> with one text
+
+            // USING GETELEMENTSBYCLASSNAME (RETURNS ARRAY-LIKE OBJECT)
+            const multipleSections = document.getElementsByClassName('multiple-sections');
+            const commonLists = document.getElementsByClassName('common-list');
+
+            // ITERATE THROUGH MULTIPLE SECTIONS
+            for (const section of multipleSections) {
+                section.style.backgroundColor = '#add8e6'; // Change background
+            }
+
+            // ITERATE THROUGH COMMON LISTS
+            for (const list of commonLists) {
+                list.innerHTML = '<li>Buyaka Buyaka</li><li>619</li>'; // Update <li> content
+            }
+        });
+    </script>
+</body>
+
+</html>

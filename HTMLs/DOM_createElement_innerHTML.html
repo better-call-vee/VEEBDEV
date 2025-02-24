@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Notes: Creating HTML Elements Using JavaScript</title>
+    <style>
+        /* STYLING FOR DEMONSTRATION */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: lightgray;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MAIN CONTAINER -->
+    <div id="main-container"></div>
+    <button id="create-elements-btn">Create Elements</button>
+    <script>
+        // METHOD 1: CREATING ELEMENTS USING createElement AND appendChild
+        document.getElementById('create-elements-btn').addEventListener('click', () => {
+            const mainContainer = document.getElementById('main-container');
+
+            // Create a Section Element
+            const sectionWWE = document.createElement('section');
+
+            // Create a Heading Element
+            const heading = document.createElement('h1');
+            heading.innerText = 'WWE Superstars';
+
+            // Create an Unordered List Element
+            const ul = document.createElement('ul');
+
+            // Create List Items Dynamically
+            const wrestlers = ['John Cena', 'The Rock', 'Triple H', 'Undertaker'];
+            for (const wrestler of wrestlers) {
+                const li = document.createElement('li');
+                li.innerText = wrestler;
+                ul.appendChild(li); // Append each <li> to the <ul>
+            }
+
+            // Append All Elements to the Section
+            sectionWWE.appendChild(heading); // Append <h1> to <section>
+            sectionWWE.appendChild(ul); // Append <ul> to <section>
+
+            // Append the Section to the Main Container
+            mainContainer.appendChild(sectionWWE); // Append <section> to the main container
+            /*
+            - createElement('tag_name'): Creates a new HTML element.
+            - element.innerText = 'text': Sets the text content of the element.
+            - parent.appendChild(child): Appends the child element to the parent element.
+            - Example:
+              const li = document.createElement('li');
+              li.innerText = 'John Cena';
+              ul.appendChild(li);
+            */
+        });
+
+        // METHOD 2: SETTING innerHTML DIRECTLY
+        const createUsingInnerHTML = () => {
+            const mainContainer = document.getElementById('main-container');
+
+            // Create a Section Element and Set Its Content Using innerHTML
+            const sectionDress = document.createElement('section');
+            sectionDress.innerHTML = `
+                <h1>My Dress Section</h1>
+                <ul>
+                    <li>T-shirt</li>
+                    <li>Jeans</li>
+                    <li>Jacket</li>
+                    <li>Lungi</li>
+                </ul>
+            `;
+
+            // Append the Section to the Main Container
+            mainContainer.appendChild(sectionDress); // Append <section> to the main container
+            /*
+            - innerHTML: Allows you to set the HTML content of an element directly.
+            - Example:
+              sectionDress.innerHTML = `
+                  <h1>My Dress Section</h1>
+                  <ul>
+                      <li>T-shirt</li>
+                      <li>Jeans</li>
+                      <li>Jacket</li>
+                      <li>Shoes</li>
+                  </ul>
+              `;
+            */
+        };
+
+        // Call the Second Method After a Delay (For Demonstration)
+        setTimeout(createUsingInnerHTML, 1000);
+    </script>
+    <script>
+        /*
+        1. METHOD 1: createElement and appendChild
+           - Use `document.createElement('tag_name')` to create new elements dynamically.
+           - Use `element.innerText = 'text'` to set the text content of the element.
+           - Use `parent.appendChild(child)` to append child elements to their parent.
+           - Example Workflow:
+             - Create a <section> element.
+             - Create a <h1> element and set its text.
+             - Create a <ul> element and populate it with <li> elements using a loop.
+             - Append all elements to the parent container.
+
+        2. METHOD 2: Setting innerHTML Directly
+           - Use `element.innerHTML = 'HTML_CONTENT'` to set the HTML content of an element in one step.
+           - This method is concise and useful for creating complex structures quickly.
+           - Example Workflow:
+             - Create a <section> element.
+             - Set its `innerHTML` property to include a <h1> and a <ul> with multiple <li> elements.
+             - Append the <section> to the main container.
+
+        3. Key Differences Between Methods:
+           - createElement + appendChild:
+             - More verbose but safer for dynamic content generation.
+             - Avoids potential security risks like XSS when handling user input.
+           - innerHTML:
+             - Concise and easy to use for static or predefined content.
+             - Can introduce security risks if used with untrusted data (e.g., user input).
+
+        4. Use Cases:
+           - Use `createElement` and `appendChild` when dynamically generating content based on logic or user input.
+           - Use `innerHTML` for static or predefined templates where performance and security are not major concerns.
+        */
+    </script>
+</body>
+
+</html>
