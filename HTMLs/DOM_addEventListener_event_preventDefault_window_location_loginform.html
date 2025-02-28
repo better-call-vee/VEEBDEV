@@ -1,0 +1,110 @@
+<!-- loginFormWithPreventDefault.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form with preventDefault()</title>
+    <style>
+        /* Basic styling for a centered login form */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Style inputs and button */
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Login Form Container -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <!-- Phone Number Input Field -->
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            <!-- PIN Input Field -->
+            <input type="password" id="pin" name="pin" placeholder="PIN" required>
+            <!-- Login Button -->
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Get a reference to the login form element
+        const loginForm = document.getElementById('loginForm');
+
+        // Add a submit event listener to the form
+        loginForm.addEventListener('submit', function (event) {
+            // Prevent the default form submission (which reloads the page)
+            event.preventDefault();
+
+            // Retrieve and trim the values from the input fields
+            const phone = document.getElementById('phone').value.trim();
+            const pin = document.getElementById('pin').value.trim();
+
+            // Log the input values for demonstration (can be replaced with further logic)
+            console.log(phone.length);
+            console.log(pin.length);
+
+            // Check if phone number has at least 11 digits and PIN is exactly "1234"
+            if (phone.length === 11 && pin === "1234") {
+                // Redirect to the specified HTML file in the same directory
+                window.location.href = "html_audio_video_link.html";
+            } else {
+                // Alert user if credentials are invalid
+                alert("Invalid phone number or PIN. Please ensure the phone number has at least 11 digits and the PIN is correct.");
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+<!--
+For a file in an inner directory (e.g., a subfolder named "pages"):
+                //   window.location.href = "pages/html_audio_video_link.html";
+                //
+                // For a file in an outer directory (previous)
+                //   window.location.href = "../html_audio_video_link.html";
+-->

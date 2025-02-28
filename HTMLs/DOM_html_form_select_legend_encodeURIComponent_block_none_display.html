@@ -1,0 +1,163 @@
+<!-- wweFanForm.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WWE Superstar Fan Form</title>
+    <style>
+        /* Styling for the WWE Fan Form */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .form-container {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        fieldset {
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            padding: 0 10px;
+            color: #4CAF50;
+        }
+
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        select {
+            background: #444;
+            color: #fff;
+        }
+
+        button {
+            background: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <!-- WWE Superstar Fan Form -->
+        <form id="wweForm">
+            <fieldset>
+                <legend>Select Your Favorite WWE STAR</legend>
+                <!-- WWE Superstar Selection -->
+                <select id="superstar" name="superstar" required>
+                    <option value="">-- Choose a Superstar --</option>
+                    <option value="The Rock">The Rock</option>
+                    <option value="Stone Cold Steve Austin">Stone Cold Steve Austin</option>
+                    <option value="John Cena">John Cena</option>
+                    <option value="Roman Reigns">Roman Reigns</option>
+                    <option value="Becky Lynch">Becky Lynch</option>
+                    <option value="Seth Rollins">Seth Rollins</option>
+                    <option value="Triple H">Triple H</option>
+                    <option value="Brock Lesnar">Brock Lesnar</option>
+                    <option value="Other">Other (Write your own)</option>
+                </select>
+                <!-- Custom Superstar Input Field -->
+                <input type="text" id="customSuperstar" name="customSuperstar"
+                    placeholder="Enter your fav one">
+            </fieldset>
+            <!-- Submit Button -->
+            <button type="submit">Search Superstar</button>
+        </form>
+    </div>
+
+    <script>
+        // Get form elements
+        const wweForm = document.getElementById('wweForm');
+        const superstarSelect = document.getElementById('superstar');
+        const customSuperstarInput = document.getElementById('customSuperstar');
+
+        // Show/hide custom input based on selection
+        superstarSelect.addEventListener('change', function () {
+            if (this.value === "Other") {
+                customSuperstarInput.style.display = "block";
+                customSuperstarInput.required = true;
+            } else {
+                customSuperstarInput.style.display = "none";
+                customSuperstarInput.required = false;
+            }
+        });
+
+        // Handle form submission
+        wweForm.addEventListener('submit', function (event) {
+            // Prevent default form submission (page reload)
+            event.preventDefault();
+
+            // Get selected superstar value or custom input if "Other" is selected
+            let superstar = superstarSelect.value;
+            if (superstar === "Other") {
+                superstar = customSuperstarInput.value.trim();
+            }
+
+            // Check if superstar is not empty and redirect to Google search
+            if (superstar !== "") {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(superstar);
+            } else {
+                alert("Please select or enter a WWE Superstar.");
+            }
+        });
+
+
+        const unsafeString = "Hello World & Friends?";
+        const safeString = encodeURIComponent(unsafeString);
+        console.log("Encoded URI Component:", safeString); // Output: "Hello%20World%20%26%20Friends%3F"
+    </script>
+</body>
+
+</html>
+
+<!--
+// encodeURIComponent
+  Purpose:
+  - encodeURIComponent() encodes a URI component by replacing special characters with their UTF-8 escape sequences.
+  - It ensures that characters like spaces, &, ?, =, etc., are safely transmitted within a URL.
+
+  Usage:
+  - Typically used to encode individual query string parameters or path segments.
+  - Prevents misinterpretation of special characters when constructing URLs.
+
+  Example:
+  const unsafeString = "Hello World & Friends?";
+  // Using encodeURIComponent to encode the unsafe string.
+  const safeString = encodeURIComponent(unsafeString);
+  // safeString becomes "Hello%20World%20%26%20Friends%3F"
+
+  Key Points:
+  1. Only encode individual components, not the entire URL.
+  2. The reverse function, decodeURIComponent(), decodes the encoded string back to its original form.
+*/
+
+-->

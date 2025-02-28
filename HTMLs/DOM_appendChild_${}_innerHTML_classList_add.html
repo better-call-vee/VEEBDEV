@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WWE Card Generator</title>
+    <style>
+        /* WWE-themed styles */
+        body {
+            background: #1a1a1a;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background: #333;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            text-align: center;
+            border: 2px solid #ffdd00;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            color: #ffdd00;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .description {
+            color: #fff;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        button {
+            background: #ffdd00;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #ffcc00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- WWE-themed button (no inline onclick) -->
+    <button id="addCardBtn">Add WWE Superstar Card 🥊</button>
+
+    <!-- Container for cards -->
+    <div id="wweContainer"></div>
+
+    <script>
+        // WWE Superstar data (add more as needed!)
+        const wweSuperstars = [
+            {
+                name: "John Cena",
+                catchphrase: "You can't see me!",
+            },
+            {
+                name: "The Rock",
+                catchphrase: "If you smell...",
+            },
+            {
+                name: "Stone Cold Steve Austin",
+                catchphrase: "Austin 3:16!",
+            }
+        ];
+
+        // Add event listener to the "Add Card" button
+        document.getElementById('addCardBtn').addEventListener('click', createWWECard);
+
+        // Event delegation for dynamically added "More Info" buttons
+        document.getElementById('wweContainer').addEventListener('click', (e) => {
+            if (e.target.classList.contains('card-button')) {
+                const superstarName = e.target.dataset.name;
+                alert(`This is a ${superstarName} card!`);
+            }
+        });
+
+        function createWWECard() {
+            // Randomly select a superstar
+            const randomSuperstar = wweSuperstars[
+                Math.floor(Math.random() * wweSuperstars.length)
+            ];
+
+            // Create card
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            // Add WWE-themed content with template literals and data attributes
+            card.innerHTML = `
+                <h2 class="highlight">${randomSuperstar.name}</h2>
+                <p class="description">${randomSuperstar.catchphrase}</p>
+                <button 
+                    class="card-button" 
+                    data-name="${randomSuperstar.name}"
+                >
+                    More Info
+                </button>
+            `;
+
+            // Append to container
+            document.getElementById('wweContainer').appendChild(card);
+        }
+    </script>
+</body>
+
+</html>

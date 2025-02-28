@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Required Attribute Note</title>
+    <!-- 
+    Overview:
+    - The "required" attribute is a boolean attribute that forces users to fill out a form field before submission.
+    
+    Usage:
+    - Add the "required" attribute to <input>, <select>, or <textarea> elements.
+    - It triggers native browser validation, preventing form submission if the field is empty.
+    
+    Syntax Example:
+    <input type="text" name="username" required>
+    
+    Key Points:
+    1. Boolean Attribute: Its presence means true; no value is needed.
+    2. Enhances UX: Provides immediate feedback for missing information.
+    3. Always combine with server-side validation for security.
+  -->
+</head>
+
+<body>
+    <form>
+        <label for="email">Email:</label>
+        <input value="YEET!" type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
+
+<!-- 
+Native Validation Trigger:
+     - Browser's built-in validation (including the 'required' attribute)
+       is triggered when a form submission event occurs.
+     - The <form> element defines the context for input fields to be validated.
+
+Without the <form> Element:
+     - Input elements not wrapped inside a <form> are not part of a form submission process.
+     - As a result, native validation (like enforcing 'required') doesn't get triggered.
+     - There's no submission event to check if fields are filled out.
+-->

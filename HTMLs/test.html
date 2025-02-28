@@ -1,159 +1,81 @@
-I am doing the web development course from programming hero.in this journey, you have to help me everyday.
-So doing notes specially.
-I will give you my understandings and my problems.You have to make those perfect and regenerate for me to make my
-learning the best.
-Don't use extra stuffs more than my instructions
-I have a background of competitive programming and coding in c and c++.
-do use commenting out while doing these notes, I will store these in my vscode / github.give me those in a way like the
-whole THING
-is in a code block.
-
-REMEMBER ONE THING, please follow each and every word of my prompt.
-Don't miss any instructions.
-
-Here is an example for my note, see how intuitive it is:
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Visual Event Propagation Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        /* Styling for the boxes and the message display area */
-        .box {
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
-        }
-
-        #outer-box {
-            border: 2px solid red;
-        }
-
-        #middle-box {
-            border: 2px solid green;
-        }
-
-        #inner-box {
-            border: 2px solid blue;
-        }
-
-        #log {
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            font-family: Arial, sans-serif;
-            min-height: 50px;
-            background: #f9f9f9;
-        }
-
-        button {
-            margin: 10px;
-            padding: 5px 10px;
-            font-family: Arial, sans-serif;
+        .name-container li {
+            color: darkgreen;
         }
     </style>
+  
 </head>
 
 <body>
-    <h1>Visual Event Propagation Demo</h1>
-    <p id="log">Click the <strong>Inner Box</strong> to see event propagation in action.</p>
-    <button id="clear">Clear Log</button>
+    <header>
+        <h3>This is my dom</h3>
+    </header>
+    <main>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, nam.</p>
+        <section>
+            <h3>I like visit to</h3>
+            <ul id="places">
+                <li>Sundarban</li>
+                <li>Bandorban</li>
+            </ul>
+        </section>
+        <section class="name-container">
+            <h1 id="fruits-tittle" class="omar kabir">Fruits I like</h1>
+            <ul>
+                <li class="name">jalali set</li>
+                <li class="name">jalali</li>
 
-    <!-- Nested boxes to demonstrate event propagation -->
-    <div class="box" id="outer-box">
-        Outer Box
-        <div class="box" id="middle-box">
-            Middle Box
-            <div class="box" id="inner-box">
-                Inner Box (Click Me)
-            </div>
-        </div>
-    </div>
+                <li class="name">shafayet</li>
+            </ul>
 
+        </section>
+    </main>
     <script>
-        // Get element references
-        const outerBox = document.getElementById('outer-box');
-        const middleBox = document.getElementById('middle-box');
-        const innerBox = document.getElementById('inner-box');
-        const log = document.getElementById('log');
-        const clearButton = document.getElementById('clear');
+        const licollection = document.getElementsByTagName('li');
+        //console.log(licollection);
+        for (const li of licollection) {
+            //console.log(li.innerText);
+        }
+        const allheading = document.getElementsByTagName('h3');
 
-        // Function to append a new message to the log paragraph
-        function appendMessage(message, color) {
-            const messageEl = document.createElement('div');
-            messageEl.style.color = color || 'black';
-            messageEl.textContent = message;
-            log.appendChild(messageEl);
+        for (const h3 of allheading) {
+            //console.log(h3.innerText)
+        }
+        const allP = document.getElementsByTagName('p');
+        // console.log(allP);
+        for (const p of allP) {
+            // console.log(p.innerText)
         }
 
-        // Clear log when the button is clicked
-        clearButton.addEventListener('click', () => {
-            log.innerHTML = 'Log cleared. Click the <strong>Inner Box</strong> again.';
-        });
+        //if i want to change a heading sentence
+        const idel = document.getElementById('fruits-tittle');
+        idel.innerText = 'Fruits Item';
+        const names = document.getElementsByClassName('name');
+        //console.log(names);
+        for (const name of names) {
+            //console.log(name.innerText);
+        }
 
-        /* 
-          Event Phases:
-          1. Capturing Phase: The event travels from the window down to the target.
-          2. Target Phase: The event reaches the element that was clicked.
-          3. Bubbling Phase: The event bubbles up from the target back to the window.
-        */
+        // query selectorAll
+        const liquery = document.querySelectorAll('.name-container li');
+        //  console.log(liquery);
+        for (const liq of liquery) {
+            // console.log(liq.innerText);
+        }
+        //query selector just first er ta return korbe
 
-        /* --------------------------------------------------
-        // CAPTURING PHASE: Listeners added with the capture flag set to true.
-        With true:
-        The listener is set for the capturing phase. This phase happens on the way down to the target element, so the messages are appended to the log early (at the top).
-
-       Without true:
-       The listener defaults to the bubbling phase. This phase happens after the event has reached the target, so the messages are appended later (at the bottom).
-        // --------------------------------------------------*/
-        outerBox.addEventListener('click', () => {
-            appendMessage("Outer Box: Capturing Phase", "red");
-        }, true);
-
-        middleBox.addEventListener('click', () => {
-            appendMessage("Middle Box: Capturing Phase", "green");
-        }, true);
-
-        // --------------------------------------------------
-        // TARGET PHASE: Listeners on the element that is clicked (Inner Box)
-        // --------------------------------------------------
-        innerBox.addEventListener('click', (event) => {
-            appendMessage("Inner Box: Target Phase - Listener 1", "blue");
-            // Using stopImmediatePropagation to prevent further listeners on the inner box.
-            // event.stopImmediatePropagation();
-            // If we use stopPropagation() instead, the next inner box listener would run but bubbling would be halted.
-            event.stopPropagation(); // this will stop propagation for all except inner box. but middle and outer boxs will
-            //be halted for propagation. 
-
-        });
-
-        // This listener will not execute if stopImmediatePropagation() was called above.
-        innerBox.addEventListener('click', () => {
-            appendMessage("Inner Box: Target Phase - Listener 2", "blue");
-        });
-
-        // --------------------------------------------------
-        // BUBBLING PHASE: Listeners without the capture flag.
-        // --------------------------------------------------
-        middleBox.addEventListener('click', () => {
-            appendMessage("Middle Box: Bubbling Phase", "green");
-        });
-        // use ", true" here after { , we will see it will come to the log on top, same for the next block
-
-        outerBox.addEventListener('click', () => {
-            appendMessage("Outer Box: Bubbling Phase", "red");
-        });
+        const inertext = document.getElementsByClassName('name-container');
+        const abc = inertext.innerHtml;
+        // console.log(abc);
     </script>
+    <script src="JAVASCRIPT/test.js"></script>
 </body>
 
 </html>
-Try to do the notes properly while describing properly without negligence. And,
-ONLY on those topics that I will ask you to do, no extra shits.
-
-
-SO, I started learning DOM.
-Now a really intelligent and hitting in the brain note needed on
-Be precise and short but effective as hell.
