@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> WrestleMania DOM Showdown! 💥</title>
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1588611904749-3e0e3a8a5e41') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial Black', sans-serif;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .arena {
+            width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 5px solid gold;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #ffd700;
+        }
+
+        .ring {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: url('https://i.imgur.com/3Z4X5vG.png') no-repeat center;
+            background-size: contain;
+            min-height: 400px;
+        }
+
+        .wrestler {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            width: 250px;
+        }
+
+        .wrestler:hover {
+            transform: scale(1.05);
+        }
+
+        .attack-btn {
+            background: linear-gradient(#ff4500, #8b0000);
+            border: 3px solid #ffd700;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .attack-btn:hover {
+            background: linear-gradient(#8b0000, #ff4500);
+            box-shadow: 0 0 10px #ffd700;
+        }
+
+        .wrestler img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid gold;
+        }
+
+        #commentary {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="arena">
+        <h1 style="text-align: center; text-shadow: 3px 3px 5px black;">DOM Wrestling Championship 🏆</h1>
+
+        <div class="ring">
+            <div class="wrestler" data-name="The Rock">
+                <img src="https://i.imgur.com/5U3UV6l.jpg" alt="The Rock">
+                <h2>The Rock</h2>
+                <button class="attack-btn">Rock Bottom! 💥</button>
+            </div>
+
+            <div class="wrestler" data-name="Stone Cold Steve Austin">
+                <img src="https://i.imgur.com/0ZbX6yF.jpg" alt="Stone Cold">
+                <h2>Stone Cold</h2>
+                <button class="attack-btn">Stone Cold Stunner! 🍻</button>
+            </div>
+        </div>
+
+        <div id="commentary">Choose your wrestler!</div>
+    </div>
+
+    <script>
+        // Crowd sound effect
+        const crowdSound = new Audio('https://www.soundjay.com/human/sounds/crowd-cheer-1.mp3');
+
+        document.querySelectorAll('.attack-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // Find the nearest wrestler container
+                const wrestler = this.closest('.wrestler');
+
+                // Get wrestler's name from data attribute
+                const name = wrestler.getAttribute('data-name'); //or button.getAttribute
+
+                // Get wrestler's image
+                const img = wrestler.querySelector('img').src;
+
+                // Create dynamic commentary
+                const commentary = document.getElementById('commentary');
+                commentary.innerHTML = `
+                    <img src="${img}" style="width: 60px; border-radius: 50%; margin-right: 10px;">
+                    ${name} attacks with ${this.textContent}! 🔥
+                `;
+
+                // Play crowd sound
+                crowdSound.play();
+
+                // Flash the wrestler's container
+                wrestler.style.animation = 'flash 0.5s 3';
+            });
+        });
+    </script>
+</body>
+
+</html>
