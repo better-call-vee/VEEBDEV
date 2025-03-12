@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Loop & Concurrency (JS)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            background-color: #f7f8fa;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .log {
+            background-color: #121212;
+            color: #0aff0a;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Event Loop & Concurrency in JavaScript (Clear Explanation)</h2>
+
+    <button id="runTasks">Run Tasks</button>
+    <div class="log" id="log"></div>
+
+    <script>
+        const log = document.getElementById('log');
+
+        document.getElementById('runTasks').addEventListener('click', () => {
+            log.textContent = ''; // Clear previous logs
+
+            log.textContent += "📌 Task 1: Synchronous task started\n";
+
+            setTimeout(() => {
+                log.textContent += "⏲️ Task 2: setTimeout (0ms delay) completed\n";
+            }, 0);
+
+            Promise.resolve().then(() => {
+                log.textContent += "📦 Task 3: Promise resolved (Microtask)\n";
+            });
+
+            log.textContent += "📌 Task 4: Another synchronous task completed\n";
+        });
+
+        // ----------- Detailed Explanation ------------
+        /*
+        🔥 JavaScript Event Loop & Concurrency:
+
+        🟢 JavaScript is Single-threaded:
+            - It executes ONE task at a time.
+            - But how does JS manage multiple asynchronous tasks (like setTimeout, fetch)?
+
+        🚩 Solution: Event Loop & Queues
+
+        Flow clearly explained:
+        ------------------------------------------------
+        | Call Stack (synchronous)                      |
+        | Executes tasks immediately, one after another |
+        ------------------------------------------------
+            ⬇️
+            (Event Loop constantly checks call stack)
+            ⬇️
+        ------------------------------------------------
+        | Microtask Queue (Promises, High priority 📦)  |
+        | Callback Queue (setTimeout, events, Low ⏲️)   |
+        ------------------------------------------------
+
+        🟢 Practical Task Explanation (from above button):
+            1. Runs Task 1 & Task 4 first (Synchronous tasks).
+            2. Next, runs Task 3 from Microtask Queue (Promise).
+            3. Lastly, Task 2 from Callback Queue (setTimeout), even though delay = 0ms.
+               (Callback queue has lower priority.)
+
+        🟢 Real-world analogy:
+            - Imagine JS is a restaurant chef (single-threaded).
+            - Chef first handles immediate orders (synchronous tasks).
+            - Next, picks up priority online orders (Promises, microtasks).
+            - Finally, attends general orders (setTimeout, callbacks).
+
+        🟢 Why setTimeout(0) runs LAST?
+            - Even with 0ms, setTimeout pushes the task to callback queue.
+            - Callback Queue always runs AFTER microtasks (Promises).
+
+        🟢 Execution Order in this example clearly:
+            1. Task 1 (Synchronous)
+            2. Task 4 (Synchronous)
+            3. Task 3 (Promise microtask)
+            4. Task 2 (setTimeout callback task)
+        */
+    </script>
+</body>
+
+</html>

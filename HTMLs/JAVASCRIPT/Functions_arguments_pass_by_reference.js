@@ -1,18 +1,3 @@
-I am doing the web development course from programming hero.in this journey, you have to help me everyday.
-So doing notes specially.
-I will give you my understandings and my problems.You have to make those perfect and regenerate for me to make my
-learning the best.
-    Don't use extra stuffs more than my instructions
-I have a background of competitive programming and coding in c and c++.
-do use commenting out while doing these notes, I will store these in my vscode / github.give me those in a way like the
-whole THING
-is in a code block.
-
-REMEMBER ONE THING, please follow each and every word of my prompt.
-    Don't miss any instructions.
-
-Here is an example for my engaging note where I generally use kinda entertainment plots, see how intuitive it is with proper explanations of every important term:
-
 // Function Arguments & Parameters
 function cena(f, u) {
     console.log(arguments); // [1,2,3,4,5] (array-like object)
@@ -60,12 +45,3 @@ console.log(bowlerCard.ability); // "hi hi huii + bowlerrr, bye bye"
 // 1. Primitives (numbers/strings) pass copies (value)
 // 2. Objects/arrays pass references (original modified)
 // 3. arguments object helps handle variable parameters
-
-Try to do the notes properly while describing properly without negligence.And,
-    ONLY on those topics that I will ask you to do, no extra shits.
-
-        SO, I started learning ES6.
-Now a really intelligent and hitting in the brain note needed on
-
-
-Be precise and short but effective as hell.don't use emojis and cringe headings before starting any topic in the note. Give proper explanations and stories. strictly saying

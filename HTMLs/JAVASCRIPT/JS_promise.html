@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise & Promise.all Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e3eaf1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Promise & Promise.all Example</h2>
+
+        <button onclick="singleFetch()">Single Promise</button>
+        <button onclick="multipleFetch()">Promise.all</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        // Simple fetchData promise function
+        const fetchData = () => {
+            return new Promise((resolve, reject) => {
+                const success = true; // simulate API status
+                if (success) {
+                    resolve({ name: "hero" });
+                } else {
+                    reject("Server Error");
+                }
+            });
+        };
+
+        // Single Promise demo function
+        function singleFetch() {
+            const output = document.getElementById('output');
+            output.innerHTML = 'Loading single promise...';
+
+            fetchData()
+                .then(res => {
+                    output.innerHTML = `Single promise resolved: ${JSON.stringify(res)}`;
+                })
+                .catch(err => {
+                    output.innerHTML = `Single promise rejected: ${err}`;
+                });
+        }
+
+        // Promise.all demo function (multiple fetch)
+        function multipleFetch() {
+            const output = document.getElementById('output');
+            output.innerHTML = 'Loading multiple promises...';
+
+            const urls = [
+                'https://jsonplaceholder.typicode.com/todos/1',
+                'https://jsonplaceholder.typicode.com/todos/2',
+                'https://jsonplaceholder.typicode.com/todos/3',
+                'https://jsonplaceholder.typicode.com/todos/4'
+            ];
+
+            Promise.all(urls.map(url => fetch(url).then(res => res.json())))
+                .then(dataArray => {
+                    output.innerHTML = `Promise.all resolved: <pre>${JSON.stringify(dataArray, null, 2)}</pre>`;
+                })
+                .catch(err => {
+                    output.innerHTML = `Promise.all rejected: ${err}`;
+                });
+        }
+
+        // Explanation clearly:
+        // - Single promise fetchData resolves or rejects based on "success" variable
+        // - Promise.all waits for all promises (fetch requests) to resolve
+        // - Any one failure will trigger the catch block immediately
+    </script>
+
+</body>
+
+</html>

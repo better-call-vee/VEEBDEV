@@ -1,0 +1,89 @@
+<!-- ====== API: Arrays, Multi-APIs, Function Delegation ====== -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Data Orchestration</title>
+</head>
+
+<body>
+    <button onclick="loadUsersAndPosts()">LOAD USER NETWORK</button>
+    <div id="user-container"></div>
+    <div id="post-container"></div>
+    <script>
+        /* ==== Multi-Endpoint Symphony ====
+        1. Fetch user army (10 soldiers)
+        2. Simultaneously retrieve post battalion (100 units)
+        3. Process troops through specialized generals (functions)
+        4. Deploy forces to the frontlines (DOM) */
+
+        function loadUsersAndPosts() {
+            // Dual - Users and Posts endpoints
+            Promise.all([
+                fetch('https://jsonplaceholder.typicode.com/users'),
+                fetch('https://jsonplaceholder.typicode.com/posts')
+            ])
+                .then(responses => {
+                    /* RESPONSE ARRAY:
+                    - Index 0: User response object
+                    - Index 1: Post response object
+                    */
+                    return Promise.all([responses[0].json(), responses[1].json()]);
+                })
+                .then(([userBattalion, postRegiment]) => {
+                    // DATA UNLEASHED:
+                    deployUsers(userBattalion); // Send user data to general
+                    highlightSpecialPosts(postRegiment); // Post data processing
+                })
+                .catch(err => {
+                    console.error('WAR ROOM FAILURE:', err);
+                });
+        }
+
+        /* ==== Function Generals ==== */
+        const deployUsers = (troops) => {
+            const userHQ = document.getElementById('user-container');
+            userHQ.innerHTML = troops.map(soldier => `
+                <div>
+                    <h2>${soldier.name} (Rank: ${soldier.username})</h2>
+                    <p>Contact: ${soldier.email}</p>
+                    <p>Base: ${soldier.address.city}</p>
+                </div>
+            `).join('');
+        };
+
+        const highlightSpecialPosts = (posts) => {
+            const postHQ = document.getElementById('post-container');
+            // Only show posts with ID divisible by 33 (demo filter)
+            const specialOps = posts.filter(post => post.id % 33 === 0);
+
+            postHQ.innerHTML = specialOps.map(mission => `
+                <div>
+                    <h3>CODE NAME: ${mission.title}</h3>
+                    <p>${mission.body}</p>
+                </div>
+            `).join('');
+        };
+
+        /* ==== Battlefield Analogies ====
+        - Promise.all() = Sending multiple recon teams simultaneously
+        - .map() = Cloning soldiers for ID cards
+        - Filter = Selecting elite units for special missions
+    
+        DATA FLOW BREAKDOWN:
+        1. Dual fetch calls (infantry units dispatched)
+        2. Responses captured in array (prisoners of war)
+        3. JSON conversion (interrogation process)
+        4. Data sent to specialized commanders (function delegation)
+        5. DOM manipulation (territory conquest) 
+        
+       Promise.all => Gathers multiple promises 
+       - Returns SINGLE promise that:
+         ✓ Resolves when ALL promises complete successfully
+         ✗ Rejects immediately if ANY promise fails
+        */
+
+    </script>
+</body>
+
+</html>

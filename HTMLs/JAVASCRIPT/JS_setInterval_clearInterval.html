@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout, setInterval & clearInterval</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .output {
+            background-color: #1e1e1e;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>setTimeout, setInterval & clearInterval clearly</h3>
+
+    <button id="startInterval">Start Interval</button>
+    <button id="stopInterval">Stop Interval</button>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+        let intervalId;  // store interval ID to clear later
+
+        // setTimeout: Runs ONCE after specified delay (ms)
+        setTimeout(() => {
+            output.innerHTML += "<div class='msg'>setTimeout fired after 2 seconds!</div>";
+        }, 2000); // 2 seconds delay, runs only ONCE
+
+        // setInterval: executes repeatedly every given milliseconds
+        document.getElementById('startInterval').addEventListener('click', () => {
+            let count = 0;
+
+            // store interval ID to clear later
+            intervalId = setInterval(() => {
+                count++;
+                output.innerHTML += `<div class='output'>Interval loop running: ${count}</div>`;
+
+                // clearInterval example with condition
+                if (count >= 9) { // stops after 9 runs automatically
+                    clearInterval(intervalId);
+                    output.innerHTML += "<div><strong>Interval auto-stopped after 9 executions.</strong></div>";
+                }
+            }, 2000); // runs every 2 seconds repeatedly
+        });
+
+        // clearInterval manually with a button
+        document.getElementById('stopInterval').addEventListener('click', () => {
+            clearInterval(intervalId); // stop interval explicitly
+            output.innerHTML += "<div><strong>Interval stopped manually.</strong></div>";
+        });
+
+        // Key Clarifications:
+        /*
+            setTimeout(callback, milliseconds):
+                - runs ONLY ONCE after delay
+
+            setInterval(callback, milliseconds):
+                - Repeats execution every defined interval (loop).
+                - Doesn't stop until clearInterval(intervalId) called.
+
+            clearInterval(intervalId):
+                - Stops ongoing interval loop.
+                - Requires Interval ID (returned from setInterval).
+
+            Practical scenario clearly explained:
+                - setInterval repeatedly reminds you every second (like alarm snooze).
+                - clearInterval is pressing "stop" to disable this repeated reminder.
+
+            Here shown practically:
+                - Auto stop after 5 repetitions (using condition count === 5).
+                - Manual stop using button provided.
+        */
+    </script>
+
+</body>
+
+</html>

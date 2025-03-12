@@ -1,0 +1,61 @@
+<!-- ====== API Showdown ====== -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSONPlaceholder</title>
+</head>
+
+<body>
+    <button onclick="handleLoadData()">LOAD DATA</button>
+    <div id="data-display"></div>
+
+    <script>
+        /* ==== The Fetch Workflow ====
+        1. Send (fetch) to URL location (API endpoint)
+        2. He returns with raw package (Response object)
+        3. We unwrap package (response.json())
+        4. Finally get the (actual data) */
+
+        function handleLoadData() {
+            // Step 1: INITIATE FETCH 
+            fetch('https://jsonplaceholder.typicode.com/todos/1') // GET request by default, copy the url and place on browser to see a json.  The API ALWAYS returns completed: false for todo/4
+                //Try changing the URL to todos/2 - you'll see completed: true!
+                .then(response => {
+                    /* RESPONSE OBJECT:
+                    - Contains headers, status code (200, 404 etc)
+                    - Body not directly readable (needs .json() conversion)
+                    */
+                    console.log(response); // Check Network tab to see full response
+                    return response.json(); // Convert to JSON (like opening the urn)
+                })
+                .then(data => {
+                    // DATA:
+                    console.log(data); // {userId: 1, id: 1, title: "...", completed: false}
+                    document.getElementById('data-display').innerHTML = `
+                <h3>${data.title}</h3>
+                <p>Status: ${data.completed ? 'COMPLETED' : 'PENDING'}</p>
+            `;
+                })
+                .catch(error => {
+                    // If API fails (Like Brock Lesnar interrupting)
+                    console.error('CATASTROPHIC ERROR:', error);
+                });
+        }
+
+        /* ==== Promise Chain Breakdown ====
+        fetch() returns Promise (potential future value)
+        .then() = "When this step finishes, do this next"
+        Chain sequence:
+        1. fetch() -> Returns Response Promise
+        2. .then() -> Process Response (convert to JSON)
+        3. .then() -> Use final data
+        4. .catch() -> Handle errors if any step fails
+    
+        ANALOGY: 
+        - Promises are like wrestlers entering the ring one after another
+        - Each .then() is a new wrestler continuing the match */
+    </script>
+</body>
+
+</html>
