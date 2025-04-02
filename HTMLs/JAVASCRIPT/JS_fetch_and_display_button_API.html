@@ -40,10 +40,10 @@
 
     <script>
         const loadCategories = () => {
-            fetch('https://openapi.programming-hero.com/api/phero-tube/categories')
+            fetch('https://openapi.programming-hero.com/api/phero-tube/categories') // will get a response
                 .then(res => res.json()) // converting response to json
-                .then((data) => {
-                    const categories = data.categories; // data.data contains the categories
+                .then((data) => { // will get the data from res.json and then will work with it
+                    const categories = data.categories; // data.categories contains the categories
                     const categoryBar = document.getElementById('category-bar');
                     categoryBar.innerHTML = ''; // clearing previous buttons if any
 

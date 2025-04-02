@@ -64,7 +64,7 @@ console.log(champions)
 const matches = [
     "Hell in a Cell",
     "Royal Rumble",
-    "Dark Match",
+    "Casket Match",
     "Steel Cage"
 ];
 

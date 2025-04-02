@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .cart-output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px dashed #ccc;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Shopping Cart</h2>
+        <label for="product">Product Name:</label>
+        <input type="text" id="product" placeholder="e.g. Chair">
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" placeholder="e.g. 2">
+
+        <button onclick="addToCart()">Add to Cart</button>
+
+        <div class="cart-output" id="cartDisplay"></div>
+    </div>
+
+    <script>
+        // Add product to cart in localStorage
+        function addToCart() {
+            const product = document.getElementById("product").value.trim();
+            const quantity = parseInt(document.getElementById("quantity").value);
+
+            if (!product || isNaN(quantity) || quantity <= 0) {
+                alert("Enter valid product and quantity.");
+                return;
+            }
+
+            // Get existing cart or initialize empty object
+            let cart = {};
+            const storedCart = localStorage.getItem("shoppingCart");
+
+            if (storedCart) {
+                cart = JSON.parse(storedCart); // convert back to object
+            }
+
+            // If product already exists, update quantity
+            if (cart[product]) {
+                cart[product] += quantity;
+            } else {
+                cart[product] = quantity;
+            }
+
+            // Store updated cart back to localStorage
+            localStorage.setItem("shoppingCart", JSON.stringify(cart));
+
+            // Show cart visually
+            displayCart();
+        }
+
+        // Display cart on the page
+        function displayCart() {
+            const cartDisplay = document.getElementById("cartDisplay");
+            const cartData = localStorage.getItem("shoppingCart");
+
+            if (cartData) {
+                const cart = JSON.parse(cartData);
+                let output = "Your Cart:\n";
+                for (let item in cart) {
+                    output += `${item} - ${cart[item]}\n`;
+                }
+                cartDisplay.textContent = output;
+            } else {
+                cartDisplay.textContent = "Cart is empty.";
+            }
+        }
+
+        // Initial display on page load
+        displayCart();
+    </script>
+</body>
+
+</html>

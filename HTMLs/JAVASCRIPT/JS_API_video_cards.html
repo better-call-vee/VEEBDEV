@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Video Cards with Filters</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            background-color: #f3f5f9;
+            text-align: center;
+        }
+
+        /* Filter buttons container */
+        #filter-buttons {
+            margin-bottom: 20px;
+        }
+
+        /* Button styles for filtering categories */
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Video container to hold the video cards */
+        #video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            /* Align items to the left while keeping it centered */
+            align-items: flex-start;
+            /* Prevents vertical stretching */
+            max-width: 1400px;
+            /* Adjust width to balance layout */
+            margin: 0 auto;
+            /* Centers the container */
+            padding: 0 5%;
+            /* Adds some space on both sides for better alignment */
+        }
+
+
+        /* Individual video card styling */
+        .video-card {
+            background-color: white;
+            border-radius: 12px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Video thumbnail (image) styling */
+        .video-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        /* Video information section */
+        .video-info {
+            padding: 15px;
+        }
+
+        /* Video title */
+        .video-card h3 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        /* Description text */
+        .video-card p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+            line-height: 1.5;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        /* Author section (profile picture & name) */
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* Author profile picture */
+        .author-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Author name */
+        .author-info span {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Views count */
+        .views {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Hover effect for video card */
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic Video Cards with Filters</h2>
+
+    <!-- Filter buttons for category selection -->
+    <div id="filter-buttons">
+        <button onclick="filterVideos('all')">All</button>
+        <button onclick="filterVideos('1001')">Music</button>
+        <button onclick="filterVideos('1003')">Comedy</button>
+        <button onclick="filterVideos('1002')">Drawing</button>
+    </div>
+
+    <!-- Container where the video cards will be dynamically inserted -->
+    <div id="video-container"></div>
+
+    <script>
+        let allVideos = []; // Stores all fetched videos for filtering
+
+        /**
+         * Fetches video data from the API and populates the page.
+         */
+        const loadVideos = () => {
+            fetch('https://openapi.programming-hero.com/api/phero-tube/videos')
+                .then(res => res.json())
+                .then(data => {
+                    allVideos = data.videos; // Save all videos for filtering later
+                    displayVideos(allVideos); // Initially display all videos
+                })
+                .catch(error => {
+                    console.error('Error fetching videos:', error);
+                });
+        };
+
+        /**
+         * Displays the given list of videos in the video container.
+         * @param {Array} videos - List of video objects to be displayed.
+         */
+        const displayVideos = (videos) => {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = ''; // Clear previous content
+
+            videos.forEach(video => {
+                videoContainer.innerHTML += `
+                    <div class="video-card">
+                        <img src="${video.thumbnail}" alt="Video Thumbnail">
+                        <div class="video-info">
+                            <h3>${video.title}</h3>
+                            <p>${video.description || 'No description available'}</p>
+                            <div class="author-info">
+                                <img src="${video.authors[0].profile_picture}" alt="Author">
+                                <span>${video.authors[0].profile_name}</span>
+                            </div>
+                            <div class="views">${video.others.views} views</div>
+                        </div>
+                    </div>
+                `;
+            });
+        };
+
+        /**
+         * Filters videos based on the selected category and displays them.
+         * @param {string} category - The category ID to filter videos by ('all' to show all).
+         */
+        const filterVideos = (category) => {
+            if (category === 'all') {
+                displayVideos(allVideos); // Show all videos when "All" is selected
+            } else {
+                const filteredVideos = allVideos.filter(video => video.category_id === category);
+                displayVideos(filteredVideos);
+            }
+        };
+
+        // Load videos when the page is first loaded
+        loadVideos();
+    </script>
+
+</body>
+
+</html>
+
+<!-- Or, we can do this using url and `` and ${} where we will get an id and make the url according to it and go on -->

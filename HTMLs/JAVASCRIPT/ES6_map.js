@@ -66,3 +66,4 @@ const mappedSparse = sparseArray.map((num, idx) => {
     return num ? num * 2 : `Empty at ${idx}`;
 });
 // Result: [2, "Empty at 1", 6]
+console.log(mappedSparse);
