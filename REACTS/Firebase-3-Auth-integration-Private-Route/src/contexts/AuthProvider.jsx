@@ -8,6 +8,10 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    /*The loading state ensures the app waits for Firebase’s auth check before deciding to redirect or render content.
+Without it, the app would incorrectly assume user === null during the initial check, leading to a bad user experience.
+so, until or unless the observer (onAuthStateChange) getting to set the user, we will have a functionality to keep the page waiting to get user. we get the user and we go on, after getting the user the observer set the state to false.
+     */
 
     const createUser = (email, password) => {
         setLoading(true);

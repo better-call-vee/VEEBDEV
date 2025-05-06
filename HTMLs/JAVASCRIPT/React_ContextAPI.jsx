@@ -10,7 +10,7 @@ import Grandpa from './Grandpa';
 
 function App() {
   const asset = 'diamond'; // Value to share
-  
+
   // 2. Wrap components with Provider
   return (
     <AssetContext.Provider value={asset}>
@@ -19,7 +19,7 @@ function App() {
       Any component in the Provider's tree can access this value
       When value changes, all consuming components re-render
       */}
-      <Grandpa /> 
+      <Grandpa />
     </AssetContext.Provider>
   );
 }
@@ -65,7 +65,7 @@ export default ChildComponent;
 import { createContext, useState } from 'react';
 
 // 1. Create context with default value (array in this case)
-export const MoneyContext = createContext([0, () => {}]);
+export const MoneyContext = createContext([0, () => { }]);
 
 function ParentComponent() {
   // 2. Create state
@@ -97,3 +97,55 @@ function ChildComponent() {
     </div>
   );
 }
+
+
+
+// MULTIPLE CONTEXTS
+
+// storage.jsx
+import { createContext } from 'react';
+
+// 1️⃣ Create Context (no default values needed here)
+export const MyContext = createContext();
+
+
+
+// App.jsx
+import React from 'react';
+import { MyContext } from './storage';
+
+function MyProvider({ children }) {
+  // 2️⃣ Define multiple pieces of data
+  const user = { name: 'John' };
+  const theme = 'dark';
+  const isLoggedIn = true;
+
+  // 3️⃣ Pack them into a single object as the context value
+  return (
+    <MyContext.Provider value={{ user, theme, isLoggedIn }}>
+      {children}
+    </MyContext.Provider>
+  );
+}
+
+export default MyProvider;
+
+
+// child.jsx
+import React, { useContext } from 'react';
+import { MyContext } from './storage';
+
+function MyComponent() {
+  // 4️⃣ Destructure the object you passed in
+  const { user, theme, isLoggedIn } = useContext(MyContext);
+
+  return (
+    <div>
+      Hello, {user.name}! Theme: {theme} {/* Access multiple values directly */}
+    </div>
+  );
+}
+
+export default MyComponent;
+
+

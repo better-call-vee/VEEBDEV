@@ -51,4 +51,7 @@ https://www.npmjs.com/package/react-tabs
 React_sweet_alert
 npm install --save sweetalert2 sweetalert2-react-content
 
+
+npm install firebase@latest date-fns react-fast-marquee react-icons
+npm i tailwindcss@latest @tailwindcss/vite@latest daisyui@latest react-router
  */

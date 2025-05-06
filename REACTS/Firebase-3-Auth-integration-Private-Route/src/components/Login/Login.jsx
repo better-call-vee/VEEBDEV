@@ -18,7 +18,7 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
-                navigate(location?.state || '/')
+                navigate(location?.state || '/') //there is a location object which is set to state if you click on a button before loggin in, the location is saved and then after loggin in, it redirects you to that location through this and a line in private route. it's a real life phenomena we often face
             })
             .catch(error => {
                 console.log(error)

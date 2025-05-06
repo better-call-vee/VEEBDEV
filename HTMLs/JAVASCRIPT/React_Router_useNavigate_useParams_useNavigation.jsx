@@ -117,3 +117,6 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
+
+
+// useParams() extracts dynamic route segments (like :id or :slug) as strings from the current URL, merging parameters from nested routes automatically. It only includes parameters explicitly defined in the route path (e.g., /users/:userId gives { userId: "123" }), supports optional parameters with ? (e.g., :postId? → undefined if missing) and splat patterns (:path* to capture unmatched path parts). It works only in components rendered by React Router , requires manual validation (e.g., checking if (!id)), and needs explicit type conversion (e.g., parseInt(id) for numbers).
