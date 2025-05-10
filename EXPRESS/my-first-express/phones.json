@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "brand": "Apple",
+    "model": "iPhone 14 Pro",
+    "price_usd": 999,
+    "market": "Global",
+    "release_date": "2022-09-16",
+    "specifications": {
+      "ram_gb": 6,
+      "storage_gb": [128, 256, 512, 1024],
+      "battery_mah": 3200
+    }
+  },
+  {
+    "id": 2,
+    "brand": "Samsung",
+    "model": "Galaxy S23",
+    "price_usd": 799,
+    "market": "Global",
+    "release_date": "2023-02-17",
+    "specifications": {
+      "ram_gb": 8,
+      "storage_gb": [128, 256, 512],
+      "battery_mah": 3900
+    }
+  },
+  {
+    "id": 3,
+    "brand": "Google",
+    "model": "Pixel 7",
+    "price_usd": 599,
+    "market": "Global",
+    "release_date": "2022-10-13",
+    "specifications": {
+      "ram_gb": 8,
+      "storage_gb": [128, 256],
+      "battery_mah": 4355
+    }
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "model": "11",
+    "price_usd": 699,
+    "market": "Global",
+    "release_date": "2023-02-07",
+    "specifications": {
+      "ram_gb": 8,
+      "storage_gb": [128, 256, 512],
+      "battery_mah": 5000
+    }
+  },
+  {
+    "id": 5,
+    "brand": "Xiaomi",
+    "model": "13",
+    "price_usd": 799,
+    "market": "Global",
+    "release_date": "2023-12-01",
+    "specifications": {
+      "ram_gb": 8,
+      "storage_gb": [128, 256, 512],
+      "battery_mah": 4500
+    }
+  }
+]
