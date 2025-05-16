@@ -1,0 +1,8 @@
+npm i express cors mongo db dotenv
+
+express – Web framework for Node.js (builds APIs/servers).
+cors – Enables cross-origin requests (frontend-backend communication).
+mongo – Likely MongoDB driver (might mean mongodb package).
+db – Database utility (unclear, could be a typo or custom package).
+dotenv – Loads env vars from .env file (e.g., API keys, secrets).
+

@@ -6,6 +6,8 @@ create the react app
 npx create-react-app my-phone-app
 cd my-phone-app
 npm install react-router-dom@6
+
+.gitignore node_modules to get rid of excessive commits
 */
 
 // React router demo
@@ -16,21 +18,21 @@ import PhoneDetail from './pages/PhoneDetail';
 const API_BASE = 'http://localhost:9000'; // this is the base of API
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <PhoneList />,
-        loader: () => fetch(`${API_BASE}/phones`)
-    },
-    {
-        path: '/phone/:id',
-        element: <PhoneDetail />,
-        loader: ({ params }) =>
-            fetch(`${API_BASE}/phones/${params.id}`)
-    }
+  {
+    path: '/',
+    element: <PhoneList />,
+    loader: () => fetch(`${API_BASE}/phones`)
+  },
+  {
+    path: '/phone/:id',
+    element: <PhoneDetail />,
+    loader: ({ params }) =>
+      fetch(`${API_BASE}/phones/${params.id}`)
+  }
 ]);
 
 export default function AppRouter() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 
@@ -40,10 +42,10 @@ import ReactDOM from 'react-dom';
 import AppRouter from './AppRouter';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <AppRouter />
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <AppRouter />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 
