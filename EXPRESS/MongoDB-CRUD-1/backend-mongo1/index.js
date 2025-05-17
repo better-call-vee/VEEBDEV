@@ -66,6 +66,7 @@ async function run() {
                     name: user.name,
                     email: user.email
                 }
+                // or just $set : updatedDoc
             }
 
             const result = await usersCollection.updateOne(filter, updatedDoc);
@@ -92,7 +93,7 @@ async function run() {
     }
     finally {
         // Ensures that the client will close when you finish/error
-        // await client.close(); (only for one time usage, not suitable for dynamic uses)
+        // await client.close(); (only for one time usage, not suitable for dynamic uses, after one time, it will close the server. so we neeed to comment out this)
     }
 }
 run().catch(console.dir);
